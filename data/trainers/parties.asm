@@ -653,7 +653,8 @@ LtSurgeData:
 	db $FF, 36, VOLTORB, 37, PIKACHU, 38, MAGNETON, 38, ELECTABUZZ, 39, RAICHU, 40, ZAPDOS, 0
 
 ErikaData:
-	db $FF, 29, VICTREEBEL, 24, TANGELA, 29, VILEPLUME, 0
+	; Challenge Edition: full Grass team, levels 36-41
+	db $FF, 36, WEEPINBELL, 37, GLOOM, 38, TANGELA, 39, EXEGGUTOR, 40, VICTREEBEL, 41, VILEPLUME, 0
 
 KogaData:
 	; Challenge Edition: six-Pokemon Poison team with status pressure
