@@ -40,6 +40,9 @@ jobs:
           make DEBUG=1 -j$(nproc) compare
           .github/checkdiff.sh
 
+      - name: Generate Agumon sprite
+        run: python3 tools/create_agumon_sprite.py
+
       - name: Make
         if: ${{ github.repository_owner != 'pret' }}
         run: |
