@@ -189,7 +189,7 @@ gfx/trade/game_boy.2bpp: tools/gfx += --remove-duplicates
 
 ### Challenge Edition: reproducible four-shade football trainer portraits
 # Explicit PNG targets override the catch-all empty PNG rule below.
-gfx/trainers/messi.png gfx/trainers/cr7.png gfx/trainers/neymar.png gfx/trainers/trump.png gfx/trainers/elon_musk.png gfx/trainers/jeff_bezos.png: gfx/trainers/%.png: tools/generate_football_trainer.py
+gfx/trainers/messi.png gfx/trainers/cr7.png gfx/trainers/neymar.png gfx/trainers/trump.png gfx/trainers/elon_musk.png gfx/trainers/jeff_bezos.png gfx/trainers/bill_gates.png: gfx/trainers/%.png: tools/generate_football_trainer.py
 	python3 $< $* $@
 
 ### Catch-all graphics rules
