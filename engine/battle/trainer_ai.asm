@@ -438,16 +438,27 @@ SabrinaAI:
 	ret nc
 	jp AIUseHyperPotion
 
-Rival2AI:
-	cp 13 percent - 1
+; Early rival: occasional basic Potion below half HP.
+Rival1AI:
+	cp 25 percent + 1
 	ret nc
 	ld a, 5
 	call AICheckIfHPBelowFraction
 	ret nc
 	jp AIUsePotion
 
+; Midgame rival: modest chance to use Super Potion below half HP.
+Rival2AI:
+	cp 25 percent + 1
+	ret nc
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseSuperPotion
+
+; Champion rival: stronger recovery, still limited to two uses per Pokemon.
 Rival3AI:
-	cp 13 percent - 1
+	cp 25 percent + 1
 	ret nc
 	ld a, 5
 	call AICheckIfHPBelowFraction
