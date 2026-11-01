@@ -390,3 +390,5 @@ BillGatesPic:: INCBIN "gfx/trainers/bill_gates.pic"
 SteveJobsPic:: INCBIN "gfx/trainers/steve_jobs.pic"
 
 XiJinpingPic:: INCBIN "gfx/trainers/xi_jinping.pic"
+
+KimJongUnPic:: INCBIN "gfx/trainers/kim_jong_un.pic"
