@@ -64,23 +64,17 @@ _CinnabarGymBlaineTM38NoRoomText::
 	done
 
 _CinnabarGymSuperNerd1BattleText::
-	text "Do you know how"
-	line "hot #MON fire"
-	cont "breath can get?"
+	text "MY TEAM IS"
+	line "UNSTOPPABLE!"
 	done
 
 _CinnabarGymSuperNerd1EndBattleText::
-	text "Yow!"
-	line "Hot, hot, hot!"
+	text "IMPOSSIBLE!"
 	prompt
 
 _CinnabarGymSuperNerd1AfterBattleText::
-	text "Fire, or to be"
-	line "more precise,"
-	cont "combustion..."
-
-	para "Blah, blah, blah,"
-	line "blah..."
+	text "I MUST TRAIN"
+	line "EVEN HARDER!"
 	done
 
 _CinnabarGymSuperNerd2BattleText::
