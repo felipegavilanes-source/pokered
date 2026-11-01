@@ -357,16 +357,17 @@ ViridianGymCooltrainerM2Text:
 	jp TextScriptEnd
 
 ViridianGymCooltrainerM2BattleText:
-	text_far _ViridianGymCooltrainerM2BattleText
-	text_end
+	text "YOUR ORDER IS"
+	line "A BIG BATTLE!"
+	done
 
 ViridianGymCooltrainerM2EndBattleText:
-	text_far _ViridianGymCooltrainerM2EndBattleText
-	text_end
+	text "DELIVERY FAILED!"
+	prompt
 
 ViridianGymCooltrainerM2AfterBattleText:
-	text_far _ViridianGymCooltrainerM2AfterBattleText
-	text_end
+	text "BACK TO WORK!"
+	done
 
 ViridianGymHiker3Text:
 	text_asm
