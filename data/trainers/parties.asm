@@ -49,6 +49,7 @@ TrainerDataPointers:
 	dw LanceData
 	dw MessiData
 	dw CR7Data
+	dw ElonMuskData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -763,3 +764,7 @@ MessiData:
 
 CR7Data:
 	db $FF, 39, MACHAMP, 40, RAPIDASH, 41, PIDGEOT, 0
+
+; Viridian Gym technology-themed challenger
+ElonMuskData:
+	db $FF, 48, MAGNETON, 49, ELECTRODE, 50, RAICHU, 0
