@@ -62,7 +62,7 @@ SIDE = [
 "...##......##...",
 "................",
 ]
-PALETTE = {".": 0, "o": 1, "O": 2, "#": 3}
+PALETTE = {".": 255, "o": 170, "O": 85, "#": 0}
 
 def make_frame(base, walking=False):
     rows = [list(row) for row in base]
