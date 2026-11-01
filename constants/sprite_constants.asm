@@ -52,7 +52,7 @@
 	const SPRITE_KOGA                    ; $30
 	const SPRITE_GUARD                   ; $31
 	const SPRITE_UNUSED_GUARD            ; $32
-DEF SPRITE_MESSI EQU SPRITE_UNUSED_GUARD ; safe unused Gen 1 NPC slot for Route 9
+DEF SPRITE_CR7 EQU SPRITE_UNUSED_GUARD ; dedicated Route 15 NPC graphic
 	const SPRITE_MOM                     ; $33
 	const SPRITE_BALDING_GUY             ; $34
 	const SPRITE_LITTLE_BOY              ; $35
