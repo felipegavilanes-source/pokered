@@ -13,7 +13,7 @@
 	const SPRITESET_CYCLING_ROAD    ; 09
 	const SPRITESET_FUCHSIA         ; 0a
 	const SPRITESET_PALLET_AGUMON   ; 0b (exclusive to Pallet Town)
-	const SPRITESET_ROUTE9_MESSI    ; 0c (exclusive to Route 9)
+	const SPRITESET_ROUTE15_CR7    ; 0c (exclusive to Route 15 east)
 DEF NUM_SPRITE_SETS EQU const_value - 1
 
 ; split sprite set ids
