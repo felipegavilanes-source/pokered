@@ -129,16 +129,17 @@ Route15CooltrainerF2AfterBattleText:
 	text_end
 
 Route15CooltrainerM1BattleText:
-	text_far _Route15CooltrainerM1BattleText
-	text_end
+	text "SIUUU!"
+	line "FACE MY TEAM!"
+	done
 
 Route15CooltrainerM1EndBattleText:
-	text_far _Route15CooltrainerM1EndBattleText
-	text_end
+	text "INCREDIBLE!"
+	prompt
 
 Route15CooltrainerM1AfterBattleText:
-	text_far _Route15CooltrainerM1AfterBattleText
-	text_end
+	text "NEVER GIVE UP!"
+	done
 
 Route15CooltrainerM2BattleText:
 	text_far _Route15CooltrainerM2BattleText
