@@ -1578,8 +1578,7 @@ MagikarpEvosMoves:
 	db EVOLVE_LEVEL, 20, GYARADOS
 	db 0
 ; Learnset
-	db 15, TACKLE
-	db 0
+	db 0 ; TACKLE is available from level 1 in Challenge Edition
 
 MissingNo86EvosMoves:
 ; Evolutions
