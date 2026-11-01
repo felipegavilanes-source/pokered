@@ -78,57 +78,46 @@ _CinnabarGymSuperNerd1AfterBattleText::
 	done
 
 _CinnabarGymSuperNerd2BattleText::
-	text "I was a thief, but"
-	line "I became straight"
-	cont "as a trainer!"
+	text "MY FIRE TEAM IS"
+	line "READY TO FIGHT!"
 	done
 
 _CinnabarGymSuperNerd2EndBattleText::
-	text "I"
-	line "surrender!"
+	text "YOU WIN!"
 	prompt
 
 _CinnabarGymSuperNerd2AfterBattleText::
-	text "I can't help"
-	line "stealing other"
-	cont "people's #MON!"
+	text "I NEED PRACTICE!"
 	done
 
 _CinnabarGymSuperNerd3BattleText::
-	text "You can't win!"
-	line "I have studied"
-	cont "#MON totally!"
+	text "LET'S SEE YOUR"
+	line "BATTLE SPIRIT!"
 	done
 
 _CinnabarGymSuperNerd3EndBattleText::
-	text "Waah!"
-	line "My studies!"
+	text "WELL PLAYED!"
 	prompt
 
 _CinnabarGymSuperNerd3AfterBattleText::
-	text "My theories are"
-	line "too complicated"
-	cont "for you!"
+	text "KEEP TRAINING!"
 	done
 
 _CinnabarGymSuperNerd4BattleText::
-	text "I just like using"
-	line "fire #MON!"
+	text "I HAVE A"
+	line "STRONG DEFENSE!"
 	done
 
 _CinnabarGymSuperNerd4EndBattleText::
-	text "Too hot"
-	line "to handle!"
+	text "I LOST!"
 	prompt
 
 _CinnabarGymSuperNerd4AfterBattleText::
-	text "I wish there was"
-	line "a thief #MON!"
-	cont "I'd use that!"
+	text "A TOUGH MATCH!"
 	done
 
 _CinnabarGymSuperNerd5BattleText::
-	text "I know why BLAINE"
+	text "I know why XI JINPING"
 	line "became a trainer!"
 	done
 
@@ -137,13 +126,13 @@ _CinnabarGymSuperNerd5EndBattleText::
 	prompt
 
 _CinnabarGymSuperNerd5AfterBattleText::
-	text "BLAINE was lost"
+	text "XI JINPING was lost"
 	line "in the mountains"
 	cont "when a fiery bird"
 	cont "#MON appeared."
 
 	para "Its light enabled"
-	line "BLAINE to find"
+	line "XI JINPING to find"
 	cont "his way down!"
 	done
 
@@ -185,7 +174,7 @@ _CinnabarGymGymGuideChampInMakingText::
 	line "making!"
 
 	para "The hot-headed"
-	line "BLAINE is a fire"
+	line "XI JINPING is a fire"
 	cont "#MON pro!"
 
 	para "Douse his spirits"
