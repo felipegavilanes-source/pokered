@@ -83,6 +83,17 @@ def main():
     assert "overworld_sprite AgumonSprite, 12" in pointers
 
     check_png("gfx/sprites/agumon.png", 16, 96)  # six 16x16 frames
+    # The artwork is sampled from the user-provided six-pose sprite sheet.
+    from create_agumon_sprite import PIXELS_ZLIB_BASE64, EXPECTED_SHA256
+    import base64
+    pixels = zlib.decompress(base64.b64decode(PIXELS_ZLIB_BASE64))
+    assert len(pixels) == 16 * 96
+    assert hashlib.sha256(pixels).hexdigest() == EXPECTED_SHA256
+    assert set(pixels) == {0, 1, 2, 3}
+    frames = [pixels[i * 256:(i + 1) * 256] for i in range(6)]
+    assert len(set(frames)) == 6, "Each Agumon walk/direction pose must be distinct"
+    assert "AgumonSprite::" in read("gfx/sprites.asm")
+
     assert (ROOT / "gfx/sprites/agumon.2bpp").stat().st_size == 24 * 16, (
         "Agumon's complete six frames must occupy 24 Game Boy tiles"
     )
