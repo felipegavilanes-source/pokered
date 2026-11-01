@@ -507,7 +507,8 @@ ProfOakData:
 	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, CHARIZARD, 70, GYARADOS, 0
 
 ChiefData:
-; none
+; Challenge Edition: Neymar, secret football-themed trainer in Viridian Forest.
+	db $FF, 13, PIKACHU, 14, MANKEY, 15, MEOWTH, 0
 
 ScientistData:
 ; Unused
