@@ -386,6 +386,15 @@ CooltrainerFAI:
 	ret nc
 	jp AISwitchIfEnoughMons
 
+; Champion Island postgame boss: can heal twice per Pokemon when sufficiently injured.
+ProfessorOakAI:
+	cp 50 percent + 1
+	ret nc
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseHyperPotion
+
 BrockAI:
 ; if his active monster has a status condition, use a full heal
 	ld a, [wEnemyMonStatus]
