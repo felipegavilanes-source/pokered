@@ -47,6 +47,8 @@ TrainerDataPointers:
 	dw ChannelerData
 	dw AgathaData
 	dw LanceData
+	dw MessiData
+	dw CR7Data
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -754,3 +756,10 @@ AgathaData:
 
 LanceData:
 	db $FF, 58, GYARADOS, 56, DRAGONAIR, 56, DRAGONAIR, 60, AERODACTYL, 62, DRAGONITE, 0
+
+; Challenge Edition football legends
+MessiData:
+	db $FF, 29, PIKACHU, 30, PERSIAN, 31, ALAKAZAM, 0
+
+CR7Data:
+	db $FF, 39, MACHAMP, 40, RAPIDASH, 41, PIDGEOT, 0
