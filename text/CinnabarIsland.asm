@@ -4,10 +4,11 @@ _CinnabarIslandDoorIsLockedText::
 	done
 
 _CinnabarIslandGirlText::
-	text "CINNABAR GYM's"
-	line "BLAINE is an odd"
-	cont "man who has lived"
-	cont "here for decades."
+	text "The GYM LEADER"
+	line "is XI JINPING!"
+
+	para "His FIRE #MON"
+	line "are powerful!"
 	done
 
 _CinnabarIslandGamblerText::
@@ -18,7 +19,7 @@ _CinnabarIslandGamblerText::
 	done
 
 _CinnabarIslandSignText::
-	text "CINNABAR ISLAND"
+	text "COMUNIST ISLAND"
 	line "The Fiery Town of"
 	cont "Burning Desire"
 	done
@@ -28,10 +29,10 @@ _CinnabarIslandPokemonLabSignText::
 	done
 
 _CinnabarIslandGymSignText::
-	text "CINNABAR ISLAND"
+	text "COMUNIST ISLAND"
 	line "#MON GYM"
-	cont "LEADER: BLAINE"
+	cont "LEADER: XI"
 
-	para "The Hot-Headed"
-	line "Quiz Master!"
+	para "XI JINPING IS"
+	line "THE GYM LEADER!"
 	done
