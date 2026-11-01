@@ -4,11 +4,14 @@ import struct
 import sys
 import zlib
 from football_redesign import football_portrait
+from neymar_reference import neymar_portrait
 
 PALETTE = (255, 170, 85, 0)
 
 def portrait(name):
-    if name in ("neymar", "messi", "cr7"):
+    if name == "neymar":
+        return neymar_portrait()
+    if name in ("messi", "cr7"):
         return football_portrait(name)
     pixels = [[0] * 56 for _ in range(56)]
     def rect(x1,y1,x2,y2,c):
