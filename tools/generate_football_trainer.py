@@ -7,6 +7,7 @@ from football_redesign import football_portrait
 from neymar_reference import neymar_portrait
 from messi_reference import messi_portrait
 from cr7_reference import cr7_portrait
+from trump_reference import trump_portrait
 
 PALETTE = (255, 170, 85, 0)
 
@@ -17,6 +18,8 @@ def portrait(name):
         return messi_portrait()
     if name == "cr7":
         return cr7_portrait()
+    if name == "trump":
+        return trump_portrait()
     pixels = [[0] * 56 for _ in range(56)]
     def rect(x1,y1,x2,y2,c):
         for y in range(max(0,y1),min(56,y2+1)):
