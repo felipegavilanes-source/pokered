@@ -66,6 +66,7 @@ jobs:
           path: |
             gfx/trainers/messi.png
             gfx/trainers/cr7.png
+            gfx/trainers/trump.png
             gfx/sprites/messi.png
           if-no-files-found: error
 
