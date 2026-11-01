@@ -1,5 +1,6 @@
 SECTION "NPC Sprites 1", ROMX
 
+AgumonSprite::           INCBIN "gfx/sprites/agumon.2bpp"
 ScientistSprite::        INCBIN "gfx/sprites/scientist.2bpp"
 RockerSprite::           INCBIN "gfx/sprites/rocker.2bpp"
 SwimmerSprite::          INCBIN "gfx/sprites/swimmer.2bpp"
