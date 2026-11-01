@@ -33,7 +33,7 @@ TrainerPicAndMoneyPointers::
 	pic_money BlackbeltPic,    2500
 	pic_money Rival1Pic,       3500
 	pic_money ProfOakPic,      9900
-	pic_money RockerPic,       3000
+	pic_money NeymarPic,       3000
 	pic_money ScientistPic,    5000
 	pic_money GiovanniPic,     9900
 	pic_money RocketPic,       3000
@@ -54,6 +54,6 @@ TrainerPicAndMoneyPointers::
 	pic_money ChannelerPic,    3000
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
-	pic_money GentlemanPic,    5000 ; MESSI (temporary portrait)
-	pic_money BlackbeltPic,     5000 ; CR7 (temporary portrait)
+	pic_money MessiPic,        5000 ; MESSI
+	pic_money CR7Pic,          5000 ; CR7
 	assert_table_length NUM_TRAINERS
