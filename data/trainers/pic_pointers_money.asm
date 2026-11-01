@@ -59,4 +59,5 @@ TrainerPicAndMoneyPointers::
 	pic_money ElonMuskPic,     5000 ; ELON_MUSK
 	pic_money JeffBezosPic,    5000 ; JEFF_BEZOS
 	pic_money BillGatesPic,    5000 ; BILL_GATES
+	pic_money SteveJobsPic,    5000 ; STEVE_JOBS
 	assert_table_length NUM_TRAINERS
