@@ -496,6 +496,15 @@ LanceAI:
 	ret nc
 	jp AIUseHyperPotion
 
+; Neymar can occasionally heal his team during the early-game challenge.
+NeymarAI:
+	cp 25 percent + 1
+	ret nc
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUsePotion
+
 GenericAI:
 	and a ; clear carry
 	ret
