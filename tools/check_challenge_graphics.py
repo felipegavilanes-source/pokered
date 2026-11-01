@@ -98,7 +98,7 @@ def main():
         "Agumon's complete six frames must occupy 24 Game Boy tiles"
     )
 
-    # Neymar and Messi use stock overworld graphics; battle portraits stay custom.
+    # Neymar uses stock graphics; Messi has a dedicated Route 9 sheet.
     forest = read("data/maps/objects/ViridianForest.asm")
     route9 = read("data/maps/objects/Route9.asm")
     route15 = read("data/maps/objects/Route15.asm")
@@ -109,8 +109,14 @@ def main():
     map_sets = read("data/maps/sprite_sets.asm")
     set_constants = read("constants/sprite_set_constants.asm")
     assert "SPRITE_YOUNGSTER, STAY, LEFT, TEXT_VIRIDIANFOREST_YOUNGSTER4, OPP_CHIEF" in forest
-    assert "SPRITE_COOLTRAINER_M, STAY, LEFT, TEXT_ROUTE9_COOLTRAINER_M1, OPP_MESSI" in route9
-    assert "db SPRITESET_PEWTER_CERULEAN ; ROUTE_9" in map_sets
+    assert "SPRITE_UNUSED_GUARD, STAY, LEFT, TEXT_ROUTE9_COOLTRAINER_M1, OPP_MESSI" in route9
+    assert "overworld_sprite MessiSprite, 12" in pointers
+    assert "MessiSprite::" in sprite_gfx
+    assert "db SPRITESET_ROUTE9_MESSI   ; ROUTE_9" in map_sets
+    assert "const SPRITESET_ROUTE9_MESSI" in set_constants
+    check_png("gfx/sprites/messi.png", 16, 96)
+    assert (ROOT / "gfx/sprites/messi.2bpp").stat().st_size == 24 * 16
+    
     assert "return neymar_portrait()" in generator
     assert "return messi_portrait()" in generator
     assert "from cr7_reference import cr7_portrait" in generator
@@ -166,7 +172,7 @@ def main():
         assert (ROOT / f"gfx/trainers/{stem}.pic").stat().st_size > 0
 
     print("OK: Pallet Town Agumon sprite set, 6 animation frames, "
-          "13 custom trainer portraits, Neymar/Messi overworld, Route 9 graphics, trainer class pointers and picture banks.")
+          "13 custom trainer portraits, Neymar/Messi overworld, dedicated Route 9 graphics, trainer class pointers and picture banks.")
 
 
 if __name__ == "__main__":
