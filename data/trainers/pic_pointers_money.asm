@@ -60,4 +60,5 @@ TrainerPicAndMoneyPointers::
 	pic_money JeffBezosPic,    5000 ; JEFF_BEZOS
 	pic_money BillGatesPic,    5000 ; BILL_GATES
 	pic_money SteveJobsPic,    5000 ; STEVE_JOBS
+	pic_money KimJongUnPic,    5000 ; KIM_JONG_UN
 	assert_table_length NUM_TRAINERS
