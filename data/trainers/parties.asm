@@ -498,9 +498,8 @@ Rival1Data:
 	db $FF, 18, PIDGEOTTO, 15, ABRA, 15, RATTATA, 17, MAGIKARP, 0
 
 ProfOakData:
-; Challenge Edition: reserved postgame Champion Island team.
-; Mew (level 85) planned moves: MINIMIZE, TOXIC, THUNDER_WAVE, PSYCHIC.
-; Custom move assignment and postgame battle event must be implemented before playable.
+; Challenge Edition: Champion Island postgame battle team.
+; Mew's four moves are overridden in read_trainer_party.asm.
 	 db $FF, 75, DRAGONITE, 76, SNORLAX, 77, GENGAR, 78, ALAKAZAM, 79, GYARADOS, 85, MEW, 0
 ; Unused original variants
 	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, BLASTOISE, 70, GYARADOS, 0
