@@ -49,4 +49,5 @@ TrainerNames::
 	li "LANCE"
 	li "MESSI"
 	li "CR7"
+	li "ELON MUSK"
 	assert_list_length NUM_TRAINERS
