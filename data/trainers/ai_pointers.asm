@@ -53,4 +53,5 @@ TrainerAIPointers:
 	dbw 1, LanceAI ; LANCE
 	dbw 2, Rival2AI ; MESSI
 	dbw 2, Rival2AI ; CR7
+	dbw 2, Rival2AI ; ELON_MUSK
 	assert_table_length NUM_TRAINERS
