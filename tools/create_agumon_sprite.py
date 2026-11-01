@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generate a recognizable four-shade Agumon-inspired 16x16 overworld sprite.
-The game expects 12 tiles: two 16x16 poses each for front, back, and side.
+Gen 1 stores six 16x16 poses (down, up, side; two frames each) in a 16x96 PNG.
 """
 import struct
 import zlib
@@ -91,7 +91,7 @@ def main():
             raw.append(0)  # PNG filter type 0
             raw.extend(PALETTE[c] for c in row)
     ihdr = struct.pack(">IIBBBBB", 16, 96, 8, 0, 0, 0, 0)
-    png = (b"\\x89PNG\\r\\n\\x1a\\n" + chunk(b"IHDR", ihdr) +
+    png = (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr) +
            chunk(b"IDAT", zlib.compress(bytes(raw), 9)) +
            chunk(b"IEND", b""))
     output = Path("gfx/sprites/agumon.png")
