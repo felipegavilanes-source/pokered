@@ -101,6 +101,13 @@ def main():
     assert "db SPRITESET_PEWTER_CERULEAN ; ROUTE_9" in map_sets
     assert "return neymar_portrait()" in generator
     assert "return messi_portrait()" in generator
+    assert "from cr7_reference import cr7_portrait" in generator
+    assert "return cr7_portrait()" in generator
+    from cr7_reference import cr7_portrait
+    cr7_pixels = cr7_portrait()
+    assert len(cr7_pixels) == 56 and all(len(row) == 56 for row in cr7_pixels)
+    assert set(value for row in cr7_pixels for value in row) == {0, 1, 2, 3}
+
 
     # CR7 now uses the original Cooltrainer M NPC and Route 15 sprite set.
     assert "SPRITE_COOLTRAINER_M, STAY, UP, TEXT_ROUTE15_COOLTRAINER_M1, OPP_CR7" in route15
