@@ -982,6 +982,13 @@ OaksLabOak1Text:
 	predef DisplayDexRating
 	jp .done
 .check_for_poke_balls
+	; Challenge Edition starts with POKE BALLs. Always accept Oak's parcel first.
+	CheckEvent EVENT_GOT_POKEDEX
+	jr nz, .check_for_poke_balls_normal
+	ld b, OAKS_PARCEL
+	call IsItemInBag
+	jr nz, .got_parcel
+.check_for_poke_balls_normal
 	ld b, POKE_BALL
 	call IsItemInBag
 	jr nz, .come_see_me_sometimes
