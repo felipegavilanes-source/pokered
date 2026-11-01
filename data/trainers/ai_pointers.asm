@@ -51,4 +51,6 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; CHANNELER
 	dbw 2, AgathaAI ; AGATHA
 	dbw 1, LanceAI ; LANCE
+	dbw 2, Rival2AI ; MESSI
+	dbw 2, Rival2AI ; CR7
 	assert_table_length NUM_TRAINERS
