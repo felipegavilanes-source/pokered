@@ -58,4 +58,7 @@ TrainerAIPointers:
 	dbw 2, Rival2AI ; BILL_GATES
 	dbw 2, Rival2AI ; STEVE_JOBS
 	dbw 2, Rival2AI ; KIM_JONG_UN
+	dbw 2, Rival2AI ; MADURO
+	dbw 2, Rival2AI ; CHE_GUEVARA
+	dbw 2, Rival2AI ; PUTIN
 	assert_table_length NUM_TRAINERS
