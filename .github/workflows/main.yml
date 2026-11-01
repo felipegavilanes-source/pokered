@@ -45,6 +45,14 @@ jobs:
           make -j$(nproc)
           .github/checkdiff.sh
 
+      - name: Upload Challenge Edition ROM
+        if: ${{ github.repository_owner != 'pret' && github.ref == 'refs/heads/challenge-edition' && github.event_name == 'push' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pokemon-blue-challenge-edition
+          path: pokeblue.gbc
+          if-no-files-found: error
+
       - name: Checkout symbols
         if: ${{ github.repository_owner == 'pret' && github.event_name == 'push' }}
         uses: actions/checkout@v7
