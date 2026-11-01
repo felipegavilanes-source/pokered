@@ -54,4 +54,6 @@ TrainerPicAndMoneyPointers::
 	pic_money ChannelerPic,    3000
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
+	pic_money GentlemanPic,    5000 ; MESSI (temporary portrait)
+	pic_money BlackbeltPic,     5000 ; CR7 (temporary portrait)
 	assert_table_length NUM_TRAINERS
