@@ -50,4 +50,5 @@ TrainerNames::
 	li "MESSI"
 	li "CR7"
 	li "ELON MUSK"
+	li "JEFF BEZOS"
 	assert_list_length NUM_TRAINERS
