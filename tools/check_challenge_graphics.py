@@ -103,6 +103,14 @@ def main():
     assert "return messi_portrait()" in generator
     assert "from cr7_reference import cr7_portrait" in generator
     assert "return cr7_portrait()" in generator
+    assert "from trump_reference import trump_portrait" in generator
+    assert "return trump_portrait()" in generator
+    from trump_reference import trump_portrait
+    trump_pixels = trump_portrait()
+    assert len(trump_pixels) == 56 and all(len(row) == 56 for row in trump_pixels)
+    assert set(value for row in trump_pixels for value in row) == {0, 1, 2, 3}
+    assert "pic_money TrumpPic,        9900" in read("data/trainers/pic_pointers_money.asm")
+
     from cr7_reference import cr7_portrait
     cr7_pixels = cr7_portrait()
     assert len(cr7_pixels) == 56 and all(len(row) == 56 for row in cr7_pixels)
