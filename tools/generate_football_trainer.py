@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""Generate 56x56 four-shade Game Boy football trainer portraits (stdlib only)."""
+import struct
+import sys
+import zlib
+
+PALETTE = (255, 170, 85, 0)
+
+def portrait(name):
+    pixels = [[0] * 56 for _ in range(56)]
+    def rect(x1,y1,x2,y2,c):
+        for y in range(max(0,y1),min(56,y2+1)):
+            for x in range(max(0,x1),min(56,x2+1)):
+                pixels[y][x]=c
+    def ellipse(cx,cy,rx,ry,c):
+        for y in range(56):
+            for x in range(56):
+                if ((x-cx)/rx)**2+((y-cy)/ry)**2<=1:
+                    pixels[y][x]=c
+    def line(x1,y1,x2,y2,c,width=1):
+        steps=max(abs(x2-x1),abs(y2-y1),1)
+        for i in range(steps+1):
+            x=round(x1+(x2-x1)*i/steps)
+            y=round(y1+(y2-y1)*i/steps)
+            rect(x-width//2,y-width//2,x+width//2,y+width//2,c)
+    ellipse(28,18,13,15,3)
+    ellipse(28,19,11,12,1)
+    if name=='messi':
+        rect(17,5,37,10,3)
+        rect(19,26,36,30,3)
+    elif name=='cr7':
+        rect(17,5,38,9,3)
+        line(19,10,35,6,3,3)
+    else:
+        rect(17,4,38,10,3)
+        rect(21,26,35,29,3)
+    rect(22,17,24,18,3)
+    rect(32,17,34,18,3)
+    line(26,24,31,24,3)
+    ellipse(28,51,20,21,3)
+    ellipse(28,52,17,18,2)
+    rect(25,32,31,55,1)
+    if name=='messi':
+        rect(17,34,20,55,1)
+        rect(36,34,39,55,1)
+    elif name=='cr7':
+        line(15,35,40,54,1,4)
+    else:
+        rect(18,34,38,39,1)
+    line(13,37,5,49,3,5)
+    line(43,37,51,49,3,5)
+    ellipse(7,49,6,6,3)
+    ellipse(7,49,4,4,0)
+    # Shirt number in a simple 3x5 bitmap.
+    glyphs={'1':['010','110','010','010','111'],
+            '0':['111','101','101','101','111'],
+            '7':['111','001','010','010','010']}
+    label='7' if name=='cr7' else '10'
+    for n,ch in enumerate(label):
+        for y,row in enumerate(glyphs[ch]):
+            for x,v in enumerate(row):
+                if v=='1': rect(23+n*5+x,43+y,23+n*5+x,43+y,3)
+    return pixels
+
+def chunk(kind,data):
+    return struct.pack('>I',len(data))+kind+data+struct.pack('>I',zlib.crc32(kind+data)&0xffffffff)
+
+def main():
+    name,path=sys.argv[1:]
+    pixels=portrait(name)
+    raw=b''.join(b'\0'+bytes(PALETTE[p] for p in row) for row in pixels)
+    png=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',56,56,8,0,0,0,0))+chunk(b'IDAT',zlib.compress(raw,9))+chunk(b'IEND',b'')
+    with open(path,'wb') as f:f.write(png)
+
+if __name__=='__main__':main()
