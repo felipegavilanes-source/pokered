@@ -700,7 +700,8 @@ Rival3Data:
 	db $FF, 61, PIDGEOT, 59, ALAKAZAM, 61, RHYDON, 61, EXEGGUTOR, 63, GYARADOS, 65, GYARADOS, 0
 
 LoreleiData:
-	db $FF, 54, DEWGONG, 53, CLOYSTER, 54, SLOWBRO, 56, JYNX, 56, LAPRAS, 0
+	; Challenge Edition: Articuno joins Lorelei as the sixth and final Pokemon
+	db $FF, 54, DEWGONG, 53, CLOYSTER, 54, SLOWBRO, 56, JYNX, 56, LAPRAS, 58, ARTICUNO, 0
 
 ChannelerData:
 ; Unused
