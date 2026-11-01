@@ -649,7 +649,8 @@ MistyData:
 	db $FF, 28, HORSEA, 29, PSYDUCK, 29, SHELLDER, 30, POLIWHIRL, 31, STARYU, 32, STARMIE, 0
 
 LtSurgeData:
-	db $FF, 21, VOLTORB, 18, PIKACHU, 24, RAICHU, 0
+	; Challenge Edition: six Electric Pokemon, with Electabuzz and legendary Zapdos
+	db $FF, 36, VOLTORB, 37, PIKACHU, 38, MAGNETON, 38, ELECTABUZZ, 39, RAICHU, 40, ZAPDOS, 0
 
 ErikaData:
 	db $FF, 29, VICTREEBEL, 24, TANGELA, 29, VILEPLUME, 0
