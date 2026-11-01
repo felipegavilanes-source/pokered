@@ -28,7 +28,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; TAMER
 	dbw 3, GenericAI ; BIRD_KEEPER
 	dbw 2, BlackbeltAI ; BLACKBELT
-	dbw 3, GenericAI ; RIVAL1
+	dbw 1, Rival1AI ; RIVAL1
 	dbw 2, ProfessorOakAI ; PROF_OAK
 	dbw 1, GenericAI ; CHIEF
 	dbw 3, GenericAI ; SCIENTIST
@@ -45,8 +45,8 @@ TrainerAIPointers:
 	dbw 2, BlaineAI ; BLAINE
 	dbw 1, SabrinaAI ; SABRINA
 	dbw 3, GenericAI ; GENTLEMAN
-	dbw 1, Rival2AI ; RIVAL2
-	dbw 1, Rival3AI ; RIVAL3
+	dbw 2, Rival2AI ; RIVAL2
+	dbw 2, Rival3AI ; RIVAL3
 	dbw 2, LoreleiAI ; LORELEI
 	dbw 3, GenericAI ; CHANNELER
 	dbw 2, AgathaAI ; AGATHA
