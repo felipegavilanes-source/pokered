@@ -49,7 +49,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 3    ; ERIKA
 	move_choices 1, 3    ; KOGA
 	move_choices 1, 3    ; BLAINE
-	move_choices 1, 3    ; SABRINA
+	move_choices 1, 3, 5 ; SABRINA: favor strong attacks
 	move_choices 1, 2    ; GENTLEMAN
 	move_choices 1, 3    ; RIVAL2
 	move_choices 1, 3    ; RIVAL3
