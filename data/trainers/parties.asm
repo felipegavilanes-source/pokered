@@ -645,7 +645,8 @@ BrockData:
 	db $FF, 20, GEODUDE, 20, SANDSHREW, 21, RHYHORN, 21, CUBONE, 22, GRAVELER, 22, ONIX, 0
 
 MistyData:
-	db $FF, 18, STARYU, 21, STARMIE, 0
+	; Challenge Edition: six Water Pokemon, levels 28-32
+	db $FF, 28, HORSEA, 29, PSYDUCK, 29, SHELLDER, 30, POLIWHIRL, 31, STARYU, 32, STARMIE, 0
 
 LtSurgeData:
 	db $FF, 21, VOLTORB, 18, PIKACHU, 24, RAICHU, 0
