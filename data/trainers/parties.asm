@@ -52,6 +52,7 @@ TrainerDataPointers:
 	dw ElonMuskData
 	dw JeffBezosData
 	dw BillGatesData
+	dw SteveJobsData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -778,3 +779,7 @@ JeffBezosData:
 ; Viridian Gym software-themed challenger
 BillGatesData:
 	db $FF, 48, PORYGON, 49, MAGNETON, 50, ALAKAZAM, 0
+
+; Viridian Gym design-themed challenger
+SteveJobsData:
+	db $FF, 48, PORYGON, 49, ELECTABUZZ, 50, STARMIE, 0
