@@ -53,4 +53,5 @@ TrainerNames::
 	li "JEFF BEZOS"
 	li "BILL GATES"
 	li "STEVE JOBS"
+	li "KIM JONG UN"
 	assert_list_length NUM_TRAINERS
