@@ -303,16 +303,17 @@ ViridianGymHiker1Text:
 	jp TextScriptEnd
 
 ViridianGymHiker1BattleText:
-	text_far _ViridianGymHiker1BattleText
-	text_end
+	text "ONE MORE THING..."
+	line "LET'S BATTLE!"
+	done
 
 ViridianGymHiker1EndBattleText:
-	text_far _ViridianGymHiker1EndBattleText
-	text_end
+	text "THINK DIFFERENT!"
+	prompt
 
 ViridianGymHiker1AfterBattleText:
-	text_far _ViridianGymHiker1AfterBattleText
-	text_end
+	text "BACK TO DESIGN!"
+	done
 
 ViridianGymRocker1Text:
 	text_asm
