@@ -22,7 +22,7 @@ IF DEF(_BLUE)
 	db 16, BELLSPROUT
 	db 16, PIDGEY
 	db 14, MEOWTH
-	db 16, MEOWTH
+	db 16, SQUIRTLE
 ENDC
 	end_grass_wildmons
 
