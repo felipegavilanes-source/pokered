@@ -9,16 +9,16 @@ ChampionIslandGym_Script:
 
 ChampionIslandGym_ScriptPointers:
 	def_script_pointers
-	dw_const CheckFightingMapTrainers, SCRIPT_ROUTE21_DEFAULT
-	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_ROUTE21_START_BATTLE
-	dw_const EndTrainerBattle, SCRIPT_ROUTE21_END_BATTLE
+	dw_const CheckFightingMapTrainers, SCRIPT_CHAMPIONISLANDGYM_DEFAULT
+	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_CHAMPIONISLANDGYM_START_BATTLE
+	dw_const EndTrainerBattle, SCRIPT_CHAMPIONISLANDGYM_END_BATTLE
 
 ChampionIslandGym_TextPointers:
 	def_text_pointers
 	dw_const ChampionIslandGymOakText, TEXT_CHAMPIONISLANDGYM_OAK
 
 ChampionIslandGymTrainerHeaders:
-	def_trainers
+	def_trainers 0
 ChampionIslandGymOakTrainerHeader:
 	trainer EVENT_BEAT_CHAMPION_ISLAND_OAK, 0, ChampionIslandGymOakBattleText, ChampionIslandGymOakEndBattleText, ChampionIslandGymOakAfterBattleText
 	db -1
@@ -46,7 +46,7 @@ ChampionIslandGymOakBattleText:
 	line "ultimate challenge!"
 	para "Show me all you"
 	line "have learned!"
-	end
+	done
 
 ChampionIslandGymOakEndBattleText:
 	text "Outstanding!"
