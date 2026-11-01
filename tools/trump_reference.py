@@ -1,24 +1,26 @@
-"""Donald Trump 56x56 four-tone battle portrait for the Viridian Gym leader.
+"""Donald Trump 56x56 four-shade battle portrait for the Viridian Gym leader.
 
-Created in the same high-contrast, GBA-inspired pixel-art style as the
-approved CR7 reference: swept blond hair, suit and tie, raised fist.
-The ROM is a Gen 1 Pokémon Blue hack; portraits use 4 grayscale shades.
-The embedded pixel array is self-contained so CI does not need Pillow.
+Derived from the pointing-at-the-player pixel-art reference approved by the
+user on 2026-11-01. The image is cropped to a 1024x1024 square, resized to
+56x56, contrast-adjusted, and mapped to four Game Boy palette shades.
+The original reference is not required at build time; this encoded image
+ensures reproducible compilation with Python standard library only.
 """
 import base64
 import zlib
 
-# 0=white, 1=light gray, 2=dark gray, 3=black.
+# Palette indices: 0=white, 1=light gray, 2=dark gray, 3=black.
 PIXELS_ZLIB_BASE64 = (
-    "eNq1VtG2pDAIK+T//3lLCNhWd3Uedo5zvLeaAgmhM8b/+pjZ7xh3x/zaTxgUxH6AmneCRuTXBBsTJc4vPsCWtAISwceHTGNvE5nz"
-    "mrvMy94zTTIs2ZyxEPfxioMzJtnUZ5br+BDNIkbzmcwa7F0BQCgr2DulEwQw6Ag5gpuk9YXSmWPC2DGJigLNPyQ6MeTGhAyW3iQk"
-    "98gUU/kZUMn/E2a5uZWLJD/8BRc7m8KVEvPvFwlnmogayxGMxru/ujXVoCsCrcTvbnIsybMQw5YpQpxbQHZi82zElSFqr6H4h3HW"
-    "RkrdV8GMSp64fB5llCXEYS1Y7nPyifL2guP+xWhsPP/DWV21PtZ4NV5ytk1Nn9NM1+0rtR44P/1wsduEXTtT9KlJqIAnnK2EzTtd"
-    "4LR9pGGBe2RzCuu9IziMwke8hx9u3YLN5ZUxOwRVGtm0J1YMm03AWZbAv6ggiQ53CZi+CNzxvGeJn8Mpm1bjDKdpnfU+wEaSqZ45"
-    "Z0RkHS/gWGUL6Ahkmv7QY7dZRfJlRQb1gQcRvM8SNmL2ojLnkp2JktzZMLyos8ZtnEV6M2UFdjYzltHOOntcOJQgPk7mZk8wVjSH"
-    "X5+MyDgqb/g2dj0PLNbkG1DUqEmjQX0B8pVsxQ2pgBREx60avHG1d3nau0AJz+fJVneNaW/tr6nVkTnvKaHzCM6sdxz4XdOUhoGi"
-    "6V3vmeorDEnFictoNHau08YVDl3oWmC0beEqRrLUjBQQe6KWOLBjinOoOXABu8k6UdJCk8r9+XCt7h6wcLRN6JTjCwrXIS/5O9F0"
-    "EnLiiXTiLhiw4Da4cFVJk37H7fmywKtorH184taAskQ9wPWDz6yb+lqqgZZDzcqg5n8AUI4MdA=="
+    'eNqdVoGO6yAMa5z//+dHbAdoO3bTm3S6qsPYiU3YdX37RMQVfLh+/wCpz3hA/oiMsTxiY038wFQk0hcb/d8Ca3kQswH/YBwKZ1eu'
+    'CR8lRn5DvTtA4JAeX3pz+G6QlnjE0a+M+KABru3EWCLjgyMw06GnCdzpqh3jVfjtycSqrqqIJe9mxhEXshsMy1RHYLXmhEtbxUze'
+    'FI/ngRqfOIWSoFjtEX4wV7iH8nMyWWSIhJZRpQrHFyeypaEkjxe1CZy6U7pziC26ASnZVSfbE/ABPgjN6qnkWmU7aRF5DCjjEVo4'
+    'Lb/oi7Y74Fi7cT1ZwinI4yEEez1YsOVEDwOT57PkGUQ+i1WZo5X45AMkIvqfQr1r/Yir1TAwLpuwzRe+e9unN9wOwKxpAatwPHFK'
+    'ehhHvtWPFcGn61UHPctY3HKxrecpesY6uV/5usLUJzBmHa9p7/1zzjodieSIcC7xNm9Go047C03cJrXH6tODnBYVsMixj0Odu3r7'
+    '7CVFzrYmbx+FpI3k3HnwuYfZiuso6dLTGeBf7BeHYGmzar33z3lnerIF99sJc8sX+ywYgZjAUKxzg1FbBzM5OmE+DiPfoczeOn11'
+    'psLh6O15PFcKGHTHdwKnnaFqQikR8bpBfW+vOTH+I/vghOY09AuCpH1ThGtvEeObcP2pWtCDnmA4DmCzPdArVsl0iLMbP03Q7jz3'
+    'oH3ZBXBH92Cu9sSTWhvK2X15My6gbBs3fyAJrbukd7zSJWiFo78QolfCfLWnzqzuss4DR2WX01/AjMLRm1g3nYaWvHgQGiYT1WZN'
+    'BTePvdno9bTRuXNN6NVr8dZ8E2YT1hD27e5MRe5mTanOiwkrLNDFwR9ccQVuNJMLG1CXLkwYXd2DbYHRSieON9W7qDtOAP+Xzs42'
+    'nrXh3SCXShyFYu/7C4AHofjKCmm//vPzD7BnDhs='
 )
 
 def trump_portrait():
