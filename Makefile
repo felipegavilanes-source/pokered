@@ -189,8 +189,12 @@ gfx/trade/game_boy.2bpp: tools/gfx += --remove-duplicates
 
 ### Challenge Edition: reproducible four-shade football trainer portraits
 # Explicit PNG targets override the catch-all empty PNG rule below.
-gfx/trainers/messi.png gfx/trainers/cr7.png gfx/trainers/neymar.png gfx/trainers/trump.png gfx/trainers/elon_musk.png gfx/trainers/jeff_bezos.png gfx/trainers/bill_gates.png gfx/trainers/steve_jobs.png gfx/trainers/xi_jinping.png gfx/trainers/kim_jong_un.png gfx/trainers/maduro.png gfx/trainers/che_guevara.png gfx/trainers/putin.png: gfx/trainers/%.png: tools/generate_football_trainer.py tools/football_redesign.py tools/neymar_reference.py
+gfx/trainers/messi.png gfx/trainers/cr7.png gfx/trainers/neymar.png gfx/trainers/trump.png gfx/trainers/elon_musk.png gfx/trainers/jeff_bezos.png gfx/trainers/bill_gates.png gfx/trainers/steve_jobs.png gfx/trainers/xi_jinping.png gfx/trainers/kim_jong_un.png gfx/trainers/maduro.png gfx/trainers/che_guevara.png gfx/trainers/putin.png: gfx/trainers/%.png: tools/generate_football_trainer.py tools/football_redesign.py tools/neymar_reference.py tools/messi_reference.py
 	python3 $< $* $@
+
+# Messi's unique NPC sheet is compiled in the same six-frame Gen 1 layout.
+gfx/sprites/messi.png: tools/create_messi_sprite.py
+	python3 $<
 
 # Neymar's overworld uses a standalone 6-frame 16x96 sheet.
 gfx/sprites/neymar.png: tools/create_neymar_sprite.py
