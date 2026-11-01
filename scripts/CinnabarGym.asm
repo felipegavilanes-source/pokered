@@ -24,7 +24,7 @@ CinnabarGymSetMapAndTiles:
 	jp LoadGymLeaderAndCityName
 
 .CityName:
-	db "CINNABAR ISLAND@"
+	db "COMUNIST ISLAND@"
 
 .LeaderName:
 	db "XI JINPING@"
