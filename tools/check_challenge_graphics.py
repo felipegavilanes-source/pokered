@@ -86,6 +86,26 @@ def main():
         "Agumon's complete six frames must occupy 24 Game Boy tiles"
     )
 
+    # Neymar has his own overworld NPC, rather than borrowing Youngster/Agumon.
+    forest = read("data/maps/objects/ViridianForest.asm")
+    sprite_constants = read("constants/sprite_constants.asm")
+    sprite_gfx = read("gfx/sprites.asm")
+    linker = read("layout.link")
+    generator = read("tools/generate_football_trainer.py")
+    assert "DEF SPRITE_NEYMAR EQU SPRITE_UNUSED_GAMEBOY_KID" in sprite_constants
+    assert "SPRITE_NEYMAR, STAY, LEFT, TEXT_VIRIDIANFOREST_YOUNGSTER4, OPP_CHIEF" in forest
+    assert "overworld_sprite NeymarSprite, 12" in pointers
+    assert "overworld_sprite GameboyKidSprite, 12" in pointers, (
+        "Original Gameboy Kid NPC must remain available"
+    )
+    assert 'NeymarSprite:: INCBIN "gfx/sprites/neymar.2bpp"' in sprite_gfx
+    assert '"Challenge Overworld Sprites"' in linker
+    assert "return neymar_portrait()" in generator, (
+        "Battle picture should use the user reference art, not geometric fallback"
+    )
+    check_png("gfx/sprites/neymar.png", 16, 96)
+    assert (ROOT / "gfx/sprites/neymar.2bpp").stat().st_size == 24 * 16
+
     # Each custom trainer uses the correct portrait pointer and graphics bank.
     pictures = read("gfx/pics.asm")
     money = read("data/trainers/pic_pointers_money.asm")
@@ -110,7 +130,7 @@ def main():
         assert (ROOT / f"gfx/trainers/{stem}.pic").stat().st_size > 0
 
     print("OK: Pallet Town Agumon sprite set, 6 animation frames, "
-          "13 custom trainer portraits, trainer class pointers and picture banks.")
+          "13 custom trainer portraits, Neymar overworld and reference portrait, trainer class pointers and picture banks.")
 
 
 if __name__ == "__main__":
