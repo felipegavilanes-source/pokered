@@ -2,7 +2,7 @@
 
 MapSpriteSets:
 	table_width 1
-	db SPRITESET_PALLET_VIRIDIAN ; PALLET_TOWN
+	db SPRITESET_PALLET_AGUMON   ; PALLET_TOWN
 	db SPRITESET_PALLET_VIRIDIAN ; VIRIDIAN_CITY
 	db SPRITESET_PEWTER_CERULEAN ; PEWTER_CITY
 	db SPRITESET_PEWTER_CERULEAN ; CERULEAN_CITY
@@ -194,5 +194,19 @@ SpriteSets:
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKE_BALL
 	db SPRITE_FOSSIL
+
+; SPRITESET_PALLET_AGUMON (Pallet Town only: reserve a loaded sprite slot for Agumon)
+; Keep the shared Pallet/Viridian set unchanged for other cities and routes.
+	db SPRITE_BLUE
+	db SPRITE_YOUNGSTER
+	db SPRITE_GIRL
+	db SPRITE_FISHER
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_UNUSED_SCIENTIST ; repurposed Agumon sprite graphic
+	db SPRITE_SEEL
+	db SPRITE_OAK
+	db SPRITE_SWIMMER
+	db SPRITE_POKE_BALL
+	db SPRITE_GAMBLER_ASLEEP
 
 	assert_table_length NUM_SPRITE_SETS
