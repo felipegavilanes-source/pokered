@@ -30,7 +30,7 @@ TrainerAIPointers:
 	dbw 2, BlackbeltAI ; BLACKBELT
 	dbw 1, Rival1AI ; RIVAL1
 	dbw 2, ProfessorOakAI ; PROF_OAK
-	dbw 1, GenericAI ; CHIEF
+	dbw 1, NeymarAI ; CHIEF
 	dbw 3, GenericAI ; SCIENTIST
 	dbw 1, GiovanniAI ; GIOVANNI
 	dbw 3, GenericAI ; ROCKET
