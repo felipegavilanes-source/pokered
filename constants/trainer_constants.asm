@@ -67,4 +67,5 @@ ENDM
 	trainer_const ELON_MUSK      ; Challenge Edition
 	trainer_const JEFF_BEZOS     ; Challenge Edition
 	trainer_const BILL_GATES     ; Challenge Edition
+	trainer_const STEVE_JOBS     ; Challenge Edition
 DEF NUM_TRAINERS EQU const_value - 1
