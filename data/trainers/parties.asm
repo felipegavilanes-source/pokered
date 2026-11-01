@@ -641,7 +641,8 @@ BrunoData:
 	db $FF, 53, ONIX, 55, HITMONCHAN, 55, HITMONLEE, 56, ONIX, 58, MACHAMP, 0
 
 BrockData:
-	db $FF, 12, GEODUDE, 14, ONIX, 0
+	; Challenge Edition: full six-Pokemon Rock/Ground team (levels 20-22)
+	db $FF, 20, GEODUDE, 20, SANDSHREW, 21, RHYHORN, 21, CUBONE, 22, GRAVELER, 22, ONIX, 0
 
 MistyData:
 	db $FF, 18, STARYU, 21, STARMIE, 0
