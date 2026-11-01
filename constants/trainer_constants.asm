@@ -66,4 +66,5 @@ ENDM
 	trainer_const CR7            ; Challenge Edition
 	trainer_const ELON_MUSK      ; Challenge Edition
 	trainer_const JEFF_BEZOS     ; Challenge Edition
+	trainer_const BILL_GATES     ; Challenge Edition
 DEF NUM_TRAINERS EQU const_value - 1
