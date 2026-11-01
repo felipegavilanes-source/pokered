@@ -69,4 +69,7 @@ ENDM
 	trainer_const BILL_GATES     ; Challenge Edition
 	trainer_const STEVE_JOBS     ; Challenge Edition
 	trainer_const KIM_JONG_UN    ; Challenge Edition
+	trainer_const MADURO ; Challenge Edition
+	trainer_const CHE_GUEVARA ; Challenge Edition
+	trainer_const PUTIN ; Challenge Edition
 DEF NUM_TRAINERS EQU const_value - 1
