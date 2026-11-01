@@ -1,10 +1,10 @@
-"""Neymar battle sprite adapted from the user-provided yellow Brazil jersey pixel artwork.
-56x56 pixels, four Game Boy shades. Full-body pose preserved.
+"""Neymar full-body battle sprite from user-approved grayscale reference.
+56x56 pixels, four original Game Boy tones.
 """
 import base64
 import zlib
 
-PIXELS = "eNrNlsuywzAIQxH6/3++POzUd7owyqpetTM5kUCQxOyXDl5RpNOoU0hBQCQDa1CSTLHQQgpKikUwIUogdzPdXaoQB4ebxoHtPwiON4xnDsvt3SfPnjNAJDwIP1p3kqFVw3brZ9/Yvxt04eK+qcH/Y+33+CLjGObVvwyC1jVeMQSWiTE95z5Mh6U5d3CNKIegp9Hg0h/6Dpjvq+cusCcbgxK32b46Z2ytxVQRvq5HH+HhklzFp62gd2k14AoIlNnyGJUKHDKOFELGOu1plrc5ZDRjzvDE6NPHDDuByt055vaoNGcFchTCmrDqajVpON0k9uE89F7fj9Ext9eXFSMlrFD3+ZOeB6EUt6QkLeunwwtuy5nGPdgrjs8vBeuXGNUIyiRd4viYVPR4mBwvzz+X7VOqrt/SdcYYP5xpg0lTubUGn88QE3r54oNTacUXZz95/gCjHwWE"
+PIXELS = "eNq1llluxDAMQ03q/neuFsdJjAFMBajRj2DgV22UrDH+4cC+UX76qDPODtCa1pzpg8Zg/Qwiv1VzTEtAxoiGwVGX6SA7juKZ1VMK+bD34HhK4Z07IzNKhKMH35xaYHoXljydxwAjdzMYv42ZVZDHWnNGduvLa3jizGtsi4uiZyWPgom82JRHeImSmSkdEOGkoi1is/hNUZeDcd3yIxw167TPVWzoKgvQnUxdMg2bpOsILO0FeH1Bs5hm4q8waiBtP9SyUyBnjNTBrES1Am2apwjunGqQxFWLGqSUh+510uthXY41bdocGhzfblrMX1UzL4tsu1kl0CT6lhohcvgo0A2CmfW91J+V3UvxGcNHzr5x+MitrIAtzmq4ZxvUHBSVWb5irRWyMrmeoCi6puhaPewVqrjKYT3MscBo9vKfr5v5opGKOczbN6ekMxy8sWlPKjmf21gtaBL2ahtIjcQaztgkx1OzW012/JC40D/c1tB4Xxr75+H8AdM6B9k="
 
 def neymar_portrait():
     raw = zlib.decompress(base64.b64decode(PIXELS))
