@@ -392,3 +392,7 @@ SteveJobsPic:: INCBIN "gfx/trainers/steve_jobs.pic"
 XiJinpingPic:: INCBIN "gfx/trainers/xi_jinping.pic"
 
 KimJongUnPic:: INCBIN "gfx/trainers/kim_jong_un.pic"
+
+MaduroPic:: INCBIN "gfx/trainers/maduro.pic"
+CheGuevaraPic:: INCBIN "gfx/trainers/che_guevara.pic"
+PutinPic:: INCBIN "gfx/trainers/putin.pic"
