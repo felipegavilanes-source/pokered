@@ -53,7 +53,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2    ; GENTLEMAN
 	move_choices 1, 3    ; RIVAL2
 	move_choices 1, 3    ; RIVAL3
-	move_choices 1, 2, 3 ; LORELEI
+	move_choices 1, 2, 3, 5 ; LORELEI: retain strategic AI and prioritize powerful attacks
 	move_choices 1       ; CHANNELER
 	move_choices 1, 3    ; AGATHA: consider type effectiveness while preserving status tactics
 	move_choices 1, 3    ; LANCE
