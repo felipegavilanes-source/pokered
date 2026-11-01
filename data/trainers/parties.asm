@@ -663,7 +663,7 @@ BlaineData:
 
 SabrinaData:
 ; Challenge Edition: six-Pokemon psychic-focused team with a stronger ace.
-	db $FF, 41, HYPNO, 42, MR_MIME, 42, SLOWBRO, 43, JYNX, 44, KADABRA, 47, ALAKAZAM, 0
+	db $FF, 41, HYPNO, 42, MR_MIME, 42, SLOWBRO, 43, JYNX, 47, ALAKAZAM, 50, MEWTWO, 0
 
 GentlemanData:
 ; SS Anne 1F Rooms
