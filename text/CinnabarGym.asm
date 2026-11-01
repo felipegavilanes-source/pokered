@@ -1,6 +1,6 @@
 _CinnabarGymBlainePreBattleText::
 	text "WELCOME TO"
-	line "CINNABAR GYM!"
+	line "COMUNIST GYM!"
 
 	para "I AM XI JINPING!"
 	line "MY FIRE #MON"
