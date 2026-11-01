@@ -45,7 +45,7 @@ TrainerPicAndMoneyPointers::
 	pic_money LtSurgePic,      9900
 	pic_money ErikaPic,        9900
 	pic_money KogaPic,         9900
-	pic_money BlainePic,       9900
+	pic_money XiJinpingPic,    9900
 	pic_money SabrinaPic,      9900
 	pic_money GentlemanPic,    7000
 	pic_money Rival2Pic,       6500
