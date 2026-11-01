@@ -659,7 +659,8 @@ KogaData:
 	db $FF, 37, KOFFING, 39, MUK, 37, KOFFING, 43, WEEZING, 0
 
 BlaineData:
-	db $FF, 42, GROWLITHE, 40, PONYTA, 42, RAPIDASH, 47, ARCANINE, 0
+	; Challenge Edition: six Fire Pokemon, Moltres as the final ace
+	db $FF, 42, GROWLITHE, 43, PONYTA, 44, MAGMAR, 46, RAPIDASH, 48, ARCANINE, 50, MOLTRES, 0
 
 SabrinaData:
 ; Challenge Edition: six-Pokemon psychic-focused team with a stronger ace.
