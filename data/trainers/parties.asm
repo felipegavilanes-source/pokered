@@ -656,7 +656,8 @@ ErikaData:
 	db $FF, 29, VICTREEBEL, 24, TANGELA, 29, VILEPLUME, 0
 
 KogaData:
-	db $FF, 37, KOFFING, 39, MUK, 37, KOFFING, 43, WEEZING, 0
+	; Challenge Edition: six-Pokemon Poison team with status pressure
+	db $FF, 39, KOFFING, 40, GOLBAT, 41, ARBOK, 42, MUK, 43, VENOMOTH, 45, WEEZING, 0
 
 BlaineData:
 	; Challenge Edition: six Fire Pokemon, Moltres as the final ace
