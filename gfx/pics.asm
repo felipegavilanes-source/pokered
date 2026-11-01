@@ -384,3 +384,5 @@ TrumpPic:: INCBIN "gfx/trainers/trump.pic"
 ElonMuskPic:: INCBIN "gfx/trainers/elon_musk.pic"
 
 JeffBezosPic:: INCBIN "gfx/trainers/jeff_bezos.pic"
+
+BillGatesPic:: INCBIN "gfx/trainers/bill_gates.pic"
