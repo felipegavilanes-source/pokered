@@ -20,7 +20,12 @@ IF DEF(_BLUE)
 ENDC
 	db 13, PIDGEY
 	db  8, ABRA
+IF DEF(_RED)
 	db 12, ABRA
+ENDC
+IF DEF(_BLUE)
+	db 12, BULBASAUR
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate
