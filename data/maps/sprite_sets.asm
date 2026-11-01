@@ -22,7 +22,7 @@ MapSpriteSets:
 	db SPLITSET_ROUTE_6          ; ROUTE_6
 	db SPLITSET_ROUTE_7          ; ROUTE_7
 	db SPLITSET_ROUTE_8          ; ROUTE_8
-	db SPRITESET_PEWTER_CERULEAN ; ROUTE_9
+	db SPRITESET_ROUTE9_MESSI    ; ROUTE_9
 	db SPLITSET_ROUTE_10         ; ROUTE_10
 	db SPLITSET_ROUTE_11         ; ROUTE_11
 	db SPLITSET_ROUTE_12         ; ROUTE_12
@@ -208,5 +208,21 @@ SpriteSets:
 	db SPRITE_SWIMMER
 	db SPRITE_POKE_BALL
 	db SPRITE_GAMBLER_ASLEEP
+
+; SPRITESET_ROUTE9_MESSI
+; Route 9 uses a dedicated sprite set: replace only the unused GUARD slot.
+; All other required graphics for Route 9 stay loaded (Youngster, Hiker,
+; Cooltrainer F/M and Poké Ball). Other routes retain their original sets.
+	db SPRITE_YOUNGSTER
+	db SPRITE_ROCKET
+	db SPRITE_SUPER_NERD
+	db SPRITE_HIKER
+	db SPRITE_MONSTER
+	db SPRITE_BLUE
+	db SPRITE_MESSI
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
 
 	assert_table_length NUM_SPRITE_SETS
