@@ -56,4 +56,5 @@ TrainerPicAndMoneyPointers::
 	pic_money LancePic,        9900
 	pic_money MessiPic,        5000 ; MESSI
 	pic_money CR7Pic,          5000 ; CR7
+	pic_money ElonMuskPic,     5000 ; ELON_MUSK
 	assert_table_length NUM_TRAINERS
