@@ -61,4 +61,7 @@ TrainerPicAndMoneyPointers::
 	pic_money BillGatesPic,    5000 ; BILL_GATES
 	pic_money SteveJobsPic,    5000 ; STEVE_JOBS
 	pic_money KimJongUnPic,    5000 ; KIM_JONG_UN
+	pic_money MaduroPic, 5000 ; MADURO
+	pic_money CheGuevaraPic, 5000 ; CHE_GUEVARA
+	pic_money PutinPic, 5000 ; PUTIN
 	assert_table_length NUM_TRAINERS
