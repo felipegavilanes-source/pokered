@@ -26,7 +26,7 @@ TrainerNames::
 	li "BLACKBELT"
 	li "RIVAL1"
 	li "PROF.OAK"
-	li "CHIEF"
+	li "NEYMAR"
 	li "SCIENTIST"
 	li "GIOVANNI"
 	li "ROCKET"
