@@ -45,7 +45,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 3, 5 ; BRUNO: evaluate type matchups and favor strong attacks
 	move_choices 1, 3, 5 ; BROCK: type awareness and strong damaging moves
 	move_choices 1, 3, 5 ; MISTY: type matchups and damaging move priority
-	move_choices 1, 3    ; LT_SURGE
+	move_choices 1, 3, 5 ; LT_SURGE: favor effective, powerful attacks
 	move_choices 1, 3    ; ERIKA
 	move_choices 1, 3    ; KOGA
 	move_choices 1, 3    ; BLAINE
