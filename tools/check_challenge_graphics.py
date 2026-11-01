@@ -5,6 +5,7 @@ Run after "make": no external packages or emulator required.
 """
 from pathlib import Path
 import re
+import hashlib
 import struct
 import zlib
 
@@ -109,6 +110,10 @@ def main():
     trump_pixels = trump_portrait()
     assert len(trump_pixels) == 56 and all(len(row) == 56 for row in trump_pixels)
     assert set(value for row in trump_pixels for value in row) == {0, 1, 2, 3}
+    assert hashlib.sha256(bytes(v for row in trump_pixels for v in row)).hexdigest() == (
+        "5bcfe140ed2c063cc68819001a0536e30954e05a43ac1f02922bcc21a3b2f9a2"
+    ), "Trump battle portrait must match the approved pointing pose"
+
     assert "pic_money TrumpPic,        9900" in read("data/trainers/pic_pointers_money.asm")
 
     from cr7_reference import cr7_portrait
