@@ -54,4 +54,7 @@ TrainerNames::
 	li "BILL GATES"
 	li "STEVE JOBS"
 	li "KIM JONG UN"
+	li "MADURO"
+	li "CHE GUEVARA"
+	li "PUTIN"
 	assert_list_length NUM_TRAINERS
