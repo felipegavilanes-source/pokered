@@ -60,5 +60,6 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 3, 5 ; MESSI
 	move_choices 1, 3, 5 ; CR7
 	move_choices 1, 3, 5 ; ELON_MUSK
+	move_choices 1, 3, 5 ; JEFF_BEZOS
 	assert __move_choices__ == NUM_TRAINERS, \
 		"TrainerClassMoveChoiceModifications: expected {d:NUM_TRAINERS} entries, got {d:__move_choices__}"
