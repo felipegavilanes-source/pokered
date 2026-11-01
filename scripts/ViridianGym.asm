@@ -412,16 +412,17 @@ ViridianGymCooltrainerM3Text:
 	jp TextScriptEnd
 
 ViridianGymCooltrainerM3BattleText:
-	text_far _ViridianGymCooltrainerM3BattleText
-	text_end
+	text "TIME FOR A"
+	line "SYSTEM UPDATE!"
+	done
 
 ViridianGymCooltrainerM3EndBattleText:
-	text_far _ViridianGymCooltrainerM3EndBattleText
-	text_end
+	text "BLUE SCREEN!"
+	prompt
 
 ViridianGymCooltrainerM3AfterBattleText:
-	text_far _ViridianGymCooltrainerM3AfterBattleText
-	text_end
+	text "I NEED A PATCH!"
+	done
 
 ViridianGymGymGuideText:
 	text_asm
