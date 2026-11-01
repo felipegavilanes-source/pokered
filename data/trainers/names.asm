@@ -51,4 +51,5 @@ TrainerNames::
 	li "CR7"
 	li "ELON MUSK"
 	li "JEFF BEZOS"
+	li "BILL GATES"
 	assert_list_length NUM_TRAINERS
