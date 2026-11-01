@@ -8,6 +8,7 @@
 	const_export ROUTE21_SWIMMER5
 	const_export ROUTE21_FISHER3
 	const_export ROUTE21_FISHER4
+	const_export ROUTE21_CHAMPION_OAK
 
 Route21_Object:
 	db $43 ; border block
