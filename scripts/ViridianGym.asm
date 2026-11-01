@@ -283,16 +283,18 @@ ViridianGymCooltrainerM1Text:
 	jp TextScriptEnd
 
 ViridianGymCooltrainerM1BattleText:
-	text_far _ViridianGymCooltrainerM1BattleText
-	text_end
+	text "LET'S LAUNCH"
+	line "THIS BATTLE!"
+	done
 
 ViridianGymCooltrainerM1EndBattleText:
-	text_far _ViridianGymCooltrainerM1EndBattleText
-	text_end
+	text "SYSTEM FAILURE!"
+	prompt
 
 ViridianGymCooltrainerM1AfterBattleText:
-	text_far _ViridianGymCooltrainerM1AfterBattleText
-	text_end
+	text "BACK TO THE"
+	line "DRAWING BOARD!"
+	done
 
 ViridianGymHiker1Text:
 	text_asm
