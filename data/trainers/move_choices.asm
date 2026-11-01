@@ -55,7 +55,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 3    ; RIVAL3
 	move_choices 1, 2, 3 ; LORELEI
 	move_choices 1       ; CHANNELER
-	move_choices 1       ; AGATHA
+	move_choices 1, 3    ; AGATHA: consider type effectiveness while preserving status tactics
 	move_choices 1, 3    ; LANCE
 	assert __move_choices__ == NUM_TRAINERS, \
 		"TrainerClassMoveChoiceModifications: expected {d:NUM_TRAINERS} entries, got {d:__move_choices__}"
