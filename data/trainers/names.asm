@@ -38,7 +38,7 @@ TrainerNames::
 	li "LT.SURGE"
 	li "ERIKA"
 	li "KOGA"
-	li "BLAINE"
+	li "XI JINPING"
 	li "SABRINA"
 	li "GENTLEMAN"
 	li "RIVAL2"
