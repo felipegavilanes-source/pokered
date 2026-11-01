@@ -25,7 +25,11 @@ def portrait(name):
             rect(x-width//2,y-width//2,x+width//2,y+width//2,c)
     ellipse(28,18,13,15,3)
     ellipse(28,19,11,12,1)
-    if name=='steve_jobs':
+    if name=='xi_jinping':
+        rect(15,5,40,10,3)
+        rect(17,10,39,12,2)
+        rect(21,27,35,28,2)
+    elif name=='steve_jobs':
         rect(16,5,39,9,3)
         rect(17,14,25,20,2)
         rect(31,14,39,20,2)
@@ -62,7 +66,10 @@ def portrait(name):
     ellipse(28,51,20,21,3)
     ellipse(28,52,17,18,2)
     rect(25,32,31,55,1)
-    if name=='steve_jobs':
+    if name=='xi_jinping':
+        rect(19,35,37,55,1)
+        line(27,35,28,53,3,3)
+    elif name=='steve_jobs':
         rect(17,35,39,55,3)
         rect(22,36,34,54,2)
     elif name=='bill_gates':
@@ -92,7 +99,7 @@ def portrait(name):
     glyphs={'1':['010','110','010','010','111'],
             '0':['111','101','101','101','111'],
             '7':['111','001','010','010','010']}
-    label='' if name in ('trump','elon_musk','jeff_bezos','bill_gates','steve_jobs') else ('7' if name=='cr7' else '10')
+    label='' if name in ('trump','elon_musk','jeff_bezos','bill_gates','steve_jobs','xi_jinping') else ('7' if name=='cr7' else '10')
     for n,ch in enumerate(label):
         for y,row in enumerate(glyphs[ch]):
             for x,v in enumerate(row):
