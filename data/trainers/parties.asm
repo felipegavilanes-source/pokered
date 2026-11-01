@@ -54,6 +54,9 @@ TrainerDataPointers:
 	dw BillGatesData
 	dw SteveJobsData
 	dw KimJongUnData
+	dw MaduroData
+	dw CheGuevaraData
+	dw PutinData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -788,3 +791,12 @@ SteveJobsData:
 ; Cinnabar Gym challenger
 KimJongUnData:
 	db $FF, 48, ELECTRODE, 49, MAGMAR, 50, GOLEM, 0
+
+MaduroData:
+	db $FF, 48, MAGMAR, 49, ARCANINE, 50, RAPIDASH, 0
+
+CheGuevaraData:
+	db $FF, 48, SCYTHER, 49, PRIMEAPE, 50, CHARIZARD, 0
+
+PutinData:
+	db $FF, 48, NINETALES, 49, DEWGONG, 50, BLASTOISE, 0
