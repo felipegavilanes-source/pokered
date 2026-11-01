@@ -27,7 +27,7 @@ CinnabarGymSetMapAndTiles:
 	db "CINNABAR ISLAND@"
 
 .LeaderName:
-	db "BLAINE@"
+	db "XI JINPING@"
 
 CinnabarGymResetScripts:
 	xor a ; SCRIPT_CINNABARGYM_DEFAULT
