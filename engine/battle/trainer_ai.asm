@@ -108,6 +108,7 @@ AIMoveChoiceModificationFunctionPointers:
 	dw AIMoveChoiceModification2
 	dw AIMoveChoiceModification3
 	dw AIMoveChoiceModification4 ; unused, does nothing
+	dw AIMoveChoiceModification5 ; Challenge Edition: Sabrina favors reliable damaging moves
 
 ; discourages moves that cause no damage but only a status ailment if player's mon already has one
 AIMoveChoiceModification1:
@@ -257,6 +258,37 @@ AIMoveChoiceModification3:
 	jr .nextMove
 AIMoveChoiceModification4:
 	ret
+
+; Challenge Edition: Sabrina-specific move preference.
+; Favor strong attacks over weak attacks and non-damaging moves.
+; The normal type-effectiveness scoring (method 3) still applies.
+AIMoveChoiceModification5:
+	ld hl, wBuffer - 1
+	ld de, wEnemyMonMoves
+	ld b, NUM_MOVES + 1
+.nextMove
+	dec b
+	ret z
+	inc hl
+	ld a, [de]
+	and a
+	ret z
+	inc de
+	call ReadMove
+	ld a, [wEnemyMovePower]
+	and a
+	jr nz, .damaging
+	inc [hl]
+	inc [hl] ; discourage status-only moves
+	jr .nextMove
+.damaging
+	cp 60
+	jr c, .nextMove
+	dec [hl] ; prefer moves with at least 60 base power
+	cp 90
+	jr c, .nextMove
+	dec [hl] ; further prefer moves with at least 90 base power
+	jr .nextMove
 
 ReadMove:
 	push hl
