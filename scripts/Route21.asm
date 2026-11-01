@@ -214,19 +214,10 @@ Route21Fisher4AfterBattleText:
 ; Oak cannot be challenged before the player has completed the main game.
 Route21ChampionOakText:
 	text_asm
-	ld hl, wElite4Flags
-	bit BIT_UNUSED_BEAT_ELITE_4, [hl]
-	jr z, .notChampion
-	ld hl, Route21ChampionOakTrainerHeader
-	call TalkToTrainer
-	jp TextScriptEnd
-.notChampion
 	ld hl, Route21OakLockedText
 	call PrintText
 	jp TextScriptEnd
 
-Route21ChampionOakTrainerHeader:
-	trainer EVENT_BEAT_CHAMPION_ISLAND_OAK, 0, Route21OakBattleText, Route21OakEndBattleText, Route21OakAfterBattleText
 
 Route21OakLockedText:
 	text "Only a CHAMPION"
@@ -238,7 +229,7 @@ Route21OakBattleText:
 	line "this far!"
 	para "Show me your true"
 	line "strength!"
-	end
+	done
 
 Route21OakEndBattleText:
 	text "Remarkable!"
