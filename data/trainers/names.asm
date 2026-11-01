@@ -28,7 +28,7 @@ TrainerNames::
 	li "PROF.OAK"
 	li "NEYMAR"
 	li "SCIENTIST"
-	li "GIOVANNI"
+	li "TRUMP"
 	li "ROCKET"
 	li "COOLTRAINER♂"
 	li "COOLTRAINER♀"
