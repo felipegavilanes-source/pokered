@@ -1,45 +1,40 @@
 _CinnabarGymBlainePreBattleText::
-	text "Hah!"
+	text "WELCOME TO"
+	line "CINNABAR GYM!"
 
-	para "I am BLAINE! I"
-	line "am the LEADER of"
-	cont "CINNABAR GYM!"
+	para "I AM XI JINPING!"
+	line "MY FIRE #MON"
+	cont "ARE READY!"
 
-	para "My fiery #MON"
-	line "will incinerate"
-	cont "all challengers!"
-
-	para "Hah! You better"
-	line "have BURN HEAL!"
+	para "SHOW ME YOUR"
+	line "BEST STRATEGY!"
 	done
 
 _CinnabarGymBlaineReceivedVolcanoBadgeText::
-	text "I have"
-	line "burnt out!"
+	text "IMPRESSIVE!"
+	line "YOU HAVE WON!"
 
-	para "You have earned"
-	line "the VOLCANOBADGE!@"
+	para "YOU HAVE EARNED"
+	line "THE VOLCANOBADGE!@"
 	text_end
 
 _CinnabarGymBlainePostBattleAdviceText::
-	text "FIRE BLAST is the"
-	line "ultimate fire"
-	cont "technique!"
+	text "A STRONG TEAM"
+	line "NEEDS PATIENCE"
+	cont "AND STRATEGY!"
 
-	para "Don't waste it on"
-	line "water #MON!"
+	para "USE FIRE BLAST"
+	line "WITH CARE!"
 	done
 
 _CinnabarGymBlaineVolcanoBadgeInfoText::
-	text "Hah!"
+	text "THE VOLCANOBADGE"
+	line "BOOSTS THE"
+	cont "SPECIAL POWER"
+	cont "OF YOUR #MON!"
 
-	para "The VOLCANOBADGE"
-	line "heightens the"
-	cont "SPECIAL abilities"
-	cont "of your #MON!"
-
-	para "Here, you can"
-	line "have this too!"
+	para "ACCEPT THIS TM"
+	line "AS A REWARD!"
 	done
 
 _CinnabarGymBlaineReceivedTM38Text::
