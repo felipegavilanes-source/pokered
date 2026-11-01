@@ -382,3 +382,5 @@ CR7Pic:: INCBIN "gfx/trainers/cr7.pic"
 TrumpPic:: INCBIN "gfx/trainers/trump.pic"
 
 ElonMuskPic:: INCBIN "gfx/trainers/elon_musk.pic"
+
+JeffBezosPic:: INCBIN "gfx/trainers/jeff_bezos.pic"
