@@ -74,7 +74,7 @@ def main():
     pointers = read("data/sprites/sprites.asm")
     assert "const SPRITESET_PALLET_AGUMON" in const
     assert re.search(r"db SPRITESET_PALLET_AGUMON\s*;\s*PALLET_TOWN", sets)
-    own_set = sets.split("; SPRITESET_PALLET_AGUMON (", 1)[1].split("assert_table_length", 1)[0]
+    own_set = re.split(r"(?m)^; SPRITESET_", sets.split("; SPRITESET_PALLET_AGUMON (", 1)[1], maxsplit=1)[0]
     entries = re.findall(r"^\s*db\s+(SPRITE_\w+)", own_set, re.M)
     assert len(entries) == 11, f"Pallet set must have 11 sprites; got {len(entries)}"
     assert entries[5] == "SPRITE_UNUSED_SCIENTIST", "Agumon needs a dedicated VRAM slot"
