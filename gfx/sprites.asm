@@ -75,4 +75,3 @@ SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
 SECTION "Challenge Overworld Sprites", ROMX
 NeymarSprite:: INCBIN "gfx/sprites/neymar.2bpp"
-CR7Sprite:: INCBIN "gfx/sprites/cr7.2bpp"
