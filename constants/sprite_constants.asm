@@ -56,6 +56,7 @@
 	const SPRITE_BALDING_GUY             ; $34
 	const SPRITE_LITTLE_BOY              ; $35
 	const SPRITE_UNUSED_GAMEBOY_KID      ; $36
+DEF SPRITE_NEYMAR EQU SPRITE_UNUSED_GAMEBOY_KID ; dedicated custom sprite ID
 	const SPRITE_GAMEBOY_KID             ; $37
 	const SPRITE_FAIRY                   ; $38
 	const SPRITE_AGATHA                  ; $39
