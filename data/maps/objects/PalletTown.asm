@@ -23,6 +23,6 @@ PalletTown_Object:
 	object_event  3,  8, SPRITE_GIRL, WALK, ANY_DIR, TEXT_PALLETTOWN_GIRL
 	object_event 11, 14, SPRITE_FISHER, WALK, ANY_DIR, TEXT_PALLETTOWN_FISHER
 
-	object_event  7,  7, SPRITE_MONSTER, STAY, DOWN, TEXT_PALLETTOWN_AGUMON ; Agumon easter egg (temporary sprite)
+	object_event  7,  7, SPRITE_UNUSED_SCIENTIST, STAY, DOWN, TEXT_PALLETTOWN_AGUMON ; custom Agumon sprite
 
 	def_warps_to PALLET_TOWN
