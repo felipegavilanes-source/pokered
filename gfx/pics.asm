@@ -374,6 +374,8 @@ ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
 
+SECTION "Challenge Trainer Pics", ROMX
+
 ; Challenge Edition football trainer portraits
 NeymarPic:: INCBIN "gfx/trainers/neymar.pic"
 MessiPic:: INCBIN "gfx/trainers/messi.pic"
