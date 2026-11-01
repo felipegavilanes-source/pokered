@@ -29,6 +29,6 @@ Route21_Object:
 	object_event 17, 57, SPRITE_FISHER, STAY, RIGHT, TEXT_ROUTE21_FISHER4, OPP_FISHER, 10
 
 	; Champion Island, in the middle of Route 21 (postgame battle).
-	object_event 10, 44, SPRITE_OAK, STAY, DOWN, TEXT_ROUTE21_CHAMPION_OAK, OPP_PROF_OAK, 1
+
 
 	def_warps_to ROUTE_21
