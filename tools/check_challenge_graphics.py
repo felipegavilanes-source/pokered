@@ -86,47 +86,39 @@ def main():
         "Agumon's complete six frames must occupy 24 Game Boy tiles"
     )
 
-    # Neymar has his own overworld NPC, rather than borrowing Youngster/Agumon.
+    # Neymar and Messi use stock overworld graphics; battle portraits stay custom.
     forest = read("data/maps/objects/ViridianForest.asm")
+    route9 = read("data/maps/objects/Route9.asm")
+    route15 = read("data/maps/objects/Route15.asm")
     sprite_constants = read("constants/sprite_constants.asm")
     sprite_gfx = read("gfx/sprites.asm")
     linker = read("layout.link")
     generator = read("tools/generate_football_trainer.py")
-    assert "DEF SPRITE_NEYMAR EQU SPRITE_UNUSED_GAMEBOY_KID" in sprite_constants
-    assert "SPRITE_NEYMAR, STAY, LEFT, TEXT_VIRIDIANFOREST_YOUNGSTER4, OPP_CHIEF" in forest
-    assert "overworld_sprite NeymarSprite, 12" in pointers
-    assert "overworld_sprite GameboyKidSprite, 12" in pointers, (
-        "Original Gameboy Kid NPC must remain available"
-    )
-    assert 'NeymarSprite:: INCBIN "gfx/sprites/neymar.2bpp"' in sprite_gfx
-    assert '"Challenge Overworld Sprites"' in linker
-    assert "return neymar_portrait()" in generator, (
-        "Battle picture should use the user reference art, not geometric fallback"
-    )
-    check_png("gfx/sprites/neymar.png", 16, 96)
-    assert (ROOT / "gfx/sprites/neymar.2bpp").stat().st_size == 24 * 16
-
-    # Messi's Route 9 outdoor sprite must use a dedicated loaded graphics slot.
-    route9 = read("data/maps/objects/Route9.asm")
     map_sets = read("data/maps/sprite_sets.asm")
     set_constants = read("constants/sprite_set_constants.asm")
-    assert "DEF SPRITE_MESSI EQU SPRITE_UNUSED_GUARD" in sprite_constants
-    assert "const SPRITESET_ROUTE9_MESSI" in set_constants
-    assert re.search(r"db SPRITESET_ROUTE9_MESSI\s*;\s*ROUTE_9", map_sets)
-    route9_set = map_sets.split("; SPRITESET_ROUTE9_MESSI\n", 1)[1].split("assert_table_length", 1)[0]
-    route9_entries = re.findall(r"^\s*db\s+(SPRITE_\w+)", route9_set, re.M)
-    assert len(route9_entries) == 11
-    assert "SPRITE_MESSI" in route9_entries
-    for required_sprite in ("SPRITE_YOUNGSTER", "SPRITE_HIKER",
-                            "SPRITE_COOLTRAINER_F", "SPRITE_COOLTRAINER_M",
-                            "SPRITE_POKE_BALL"):
-        assert required_sprite in route9_entries, required_sprite
-    assert "SPRITE_MESSI, STAY, LEFT, TEXT_ROUTE9_COOLTRAINER_M1, OPP_MESSI" in route9
-    assert "overworld_sprite MessiSprite, 12" in pointers
-    assert 'MessiSprite:: INCBIN "gfx/sprites/messi.2bpp"' in sprite_gfx
+    assert "SPRITE_YOUNGSTER, STAY, LEFT, TEXT_VIRIDIANFOREST_YOUNGSTER4, OPP_CHIEF" in forest
+    assert "SPRITE_COOLTRAINER_M, STAY, LEFT, TEXT_ROUTE9_COOLTRAINER_M1, OPP_MESSI" in route9
+    assert "db SPRITESET_PEWTER_CERULEAN ; ROUTE_9" in map_sets
+    assert "return neymar_portrait()" in generator
     assert "return messi_portrait()" in generator
-    check_png("gfx/sprites/messi.png", 16, 96)
-    assert (ROOT / "gfx/sprites/messi.2bpp").stat().st_size == 24 * 16
+
+    # CR7 has an isolated sprite set on the eastern half of Route 15.
+    assert "DEF SPRITE_CR7 EQU SPRITE_UNUSED_GUARD" in sprite_constants
+    assert "const SPRITESET_ROUTE15_CR7" in set_constants
+    assert "SPRITESET_ROUTE15_CR7     ; SPLITSET_ROUTE_15" in map_sets
+    cr7_set = map_sets.split("; SPRITESET_ROUTE15_CR7\n", 1)[1].split("assert_table_length", 1)[0]
+    cr7_entries = re.findall(r"^\s*db\s+(SPRITE_\w+)", cr7_set, re.M)
+    assert len(cr7_entries) == 11
+    for required in ("SPRITE_CR7", "SPRITE_COOLTRAINER_F",
+                     "SPRITE_COOLTRAINER_M", "SPRITE_BEAUTY",
+                     "SPRITE_BIKER", "SPRITE_POKE_BALL"):
+        assert required in cr7_entries, required
+    assert "SPRITE_CR7, STAY, UP, TEXT_ROUTE15_COOLTRAINER_M1, OPP_CR7" in route15
+    assert "overworld_sprite CR7Sprite, 12" in pointers
+    assert 'CR7Sprite:: INCBIN "gfx/sprites/cr7.2bpp"' in sprite_gfx
+    assert '"Challenge Overworld Sprites"' in linker
+    check_png("gfx/sprites/cr7.png", 16, 96)
+    assert (ROOT / "gfx/sprites/cr7.2bpp").stat().st_size == 24 * 16
 
     # Each custom trainer uses the correct portrait pointer and graphics bank.
     pictures = read("gfx/pics.asm")
