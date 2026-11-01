@@ -378,3 +378,5 @@ LancePic::         INCBIN "gfx/trainers/lance.pic"
 NeymarPic:: INCBIN "gfx/trainers/neymar.pic"
 MessiPic:: INCBIN "gfx/trainers/messi.pic"
 CR7Pic:: INCBIN "gfx/trainers/cr7.pic"
+
+TrumpPic:: INCBIN "gfx/trainers/trump.pic"
