@@ -57,4 +57,5 @@ TrainerAIPointers:
 	dbw 2, Rival2AI ; JEFF_BEZOS
 	dbw 2, Rival2AI ; BILL_GATES
 	dbw 2, Rival2AI ; STEVE_JOBS
+	dbw 2, Rival2AI ; KIM_JONG_UN
 	assert_table_length NUM_TRAINERS
