@@ -373,3 +373,8 @@ LoreleiPic::       INCBIN "gfx/trainers/lorelei.pic"
 ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
+
+; Challenge Edition football trainer portraits
+NeymarPic:: INCBIN "gfx/trainers/neymar.pic"
+MessiPic:: INCBIN "gfx/trainers/messi.pic"
+CR7Pic:: INCBIN "gfx/trainers/cr7.pic"
