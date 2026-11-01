@@ -659,7 +659,8 @@ BlaineData:
 	db $FF, 42, GROWLITHE, 40, PONYTA, 42, RAPIDASH, 47, ARCANINE, 0
 
 SabrinaData:
-	db $FF, 38, KADABRA, 37, MR_MIME, 38, VENOMOTH, 43, ALAKAZAM, 0
+; Challenge Edition: six-Pokemon psychic-focused team with a stronger ace.
+	db $FF, 41, HYPNO, 42, MR_MIME, 42, SLOWBRO, 43, JYNX, 44, KADABRA, 47, ALAKAZAM, 0
 
 GentlemanData:
 ; SS Anne 1F Rooms
