@@ -106,6 +106,28 @@ def main():
     check_png("gfx/sprites/neymar.png", 16, 96)
     assert (ROOT / "gfx/sprites/neymar.2bpp").stat().st_size == 24 * 16
 
+    # Messi's Route 9 outdoor sprite must use a dedicated loaded graphics slot.
+    route9 = read("data/maps/objects/Route9.asm")
+    map_sets = read("data/maps/sprite_sets.asm")
+    set_constants = read("constants/sprite_set_constants.asm")
+    assert "DEF SPRITE_MESSI EQU SPRITE_UNUSED_GUARD" in sprite_constants
+    assert "const SPRITESET_ROUTE9_MESSI" in set_constants
+    assert re.search(r"db SPRITESET_ROUTE9_MESSI\s*;\s*ROUTE_9", map_sets)
+    route9_set = map_sets.split("; SPRITESET_ROUTE9_MESSI\n", 1)[1].split("assert_table_length", 1)[0]
+    route9_entries = re.findall(r"^\s*db\s+(SPRITE_\w+)", route9_set, re.M)
+    assert len(route9_entries) == 11
+    assert "SPRITE_MESSI" in route9_entries
+    for required_sprite in ("SPRITE_YOUNGSTER", "SPRITE_HIKER",
+                            "SPRITE_COOLTRAINER_F", "SPRITE_COOLTRAINER_M",
+                            "SPRITE_POKE_BALL"):
+        assert required_sprite in route9_entries, required_sprite
+    assert "SPRITE_MESSI, STAY, LEFT, TEXT_ROUTE9_COOLTRAINER_M1, OPP_MESSI" in route9
+    assert "overworld_sprite MessiSprite, 12" in pointers
+    assert 'MessiSprite:: INCBIN "gfx/sprites/messi.2bpp"' in sprite_gfx
+    assert "return messi_portrait()" in generator
+    check_png("gfx/sprites/messi.png", 16, 96)
+    assert (ROOT / "gfx/sprites/messi.2bpp").stat().st_size == 24 * 16
+
     # Each custom trainer uses the correct portrait pointer and graphics bank.
     pictures = read("gfx/pics.asm")
     money = read("data/trainers/pic_pointers_money.asm")
@@ -130,7 +152,7 @@ def main():
         assert (ROOT / f"gfx/trainers/{stem}.pic").stat().st_size > 0
 
     print("OK: Pallet Town Agumon sprite set, 6 animation frames, "
-          "13 custom trainer portraits, Neymar overworld and reference portrait, trainer class pointers and picture banks.")
+          "13 custom trainer portraits, Neymar/Messi overworld, Route 9 graphics, trainer class pointers and picture banks.")
 
 
 if __name__ == "__main__":
