@@ -52,4 +52,5 @@ TrainerNames::
 	li "ELON MUSK"
 	li "JEFF BEZOS"
 	li "BILL GATES"
+	li "STEVE JOBS"
 	assert_list_length NUM_TRAINERS
