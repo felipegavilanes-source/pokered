@@ -29,7 +29,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; BIRD_KEEPER
 	dbw 2, BlackbeltAI ; BLACKBELT
 	dbw 3, GenericAI ; RIVAL1
-	dbw 3, GenericAI ; PROF_OAK
+	dbw 2, ProfessorOakAI ; PROF_OAK
 	dbw 1, GenericAI ; CHIEF
 	dbw 3, GenericAI ; SCIENTIST
 	dbw 1, GiovanniAI ; GIOVANNI
