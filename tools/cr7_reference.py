@@ -1,9 +1,9 @@
-"""CR7 full-body battle sprite adapted from the user's latest reference image.
-56x56 pixels, four Game Boy grayscale tones, with the complete celebration pose.
+"""CR7 full-body celebration sprite, improved face and silhouette.
+56x56 pixels, four Game Boy shades.
 """
 import base64
 import zlib
-PIXELS = "eNq9louywiAMRLub//9nyQMurS0m6FwcnVF7uiHZhB7HzxfYFuqY2CqDlD1Q0BY3OOoG61zLiaLCajbbCyr5P9xh1UM1zOBYr5+G2bKyYRgtQtlpSlkdapLmMqt7yWrdnI3Vdx4LqfhAvoU41PKR+t5kWsxmUk5YRpAudZb77FI111mr7Vb9vTKWzqLWBJcIYU7Fen6ZKXnJiP7Oj5QKDvIYHJ4cYrXWv69yHv49aHqx+5v8W7qeuLg77+rWzHZfRMjATPlab3mc+sCEBctzAlaedoJv84UrDl3NwrpwUZXHznODut4c6MIzMjZmgkz2LN0serX0jaY4P7v0YpWWJIfg6K6xb0geJt2k0VO5c8UnUg9OBVkA+67gPZVMqQ8zN2MMtsLJEDJz2Klooz3gYaNyQMztUXlawmS9tODfcE+7pgeKeYQgH+ic4XykwHwTJIv4lN6dh9EdQflCkJuCO3o6Qn7xsP8CWgwHBg=="
+PIXELS = "eNqtVsu2xCAIM+H//3l4qLW39Q54hkXbRWMwBLS1HwdFA1UUJIJFnMgZkBikqKVpWLJKCKGSAXUcQDiulqeGPQmWcFQyB7OqJwWeJ8pu4QGdJwrlrOJMTSsET2wNq0eNzQpOf+cLoWZxS3vZ9Tubq5CyRBbIoOMCzMPQU/WNZsQZbFxIvxNibo247fG7SzoQiza6Bvf+MJj1jmd30elHUwNwi6PDXPV7hlbJ9upwRVnbuD9wDUELL6jpKe8iNu823odgbz+a2aw5+JSRbW6ef+g8gdeZQYtR3Vm8VX9bVFfHW3tPd8YyC19vyJDuWYfJpqiOxDLBVYDt3JCAxNOUelRq587Ikc6LxdJW2V0TM/6f1r4xkNvWt9UDGdsEUz0E96fTecbZA5Do84/dNGq9LK5bNDyy1Of/Xsdy5Ll6gCSHLadN4LKnptLVrQjzeN7pa4uMTfbv3FFreY5cezWyh9jga30aJs+IhSKEYvoQG8ZEjfD6E5Uz6SZF4bp1d4nfnk7uot4ep3fYI8KDK+w0/AHOJuBRojjje8YHJ5AHcA=="
 def cr7_portrait():
     raw = zlib.decompress(base64.b64decode(PIXELS))
     assert len(raw) == 56 * 56 and set(raw) <= {0, 1, 2, 3}
