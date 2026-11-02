@@ -25,7 +25,7 @@ assert "AIMoveChoiceModification5:" in engine and "Rival1AI:" in engine and "Sab
 classes = read("constants/trainer_constants.asm")
 for name in ("MESSI", "CR7", "ELON_MUSK", "JEFF_BEZOS", "BILL_GATES", "STEVE_JOBS", "KIM_JONG_UN", "MADURO", "CHE_GUEVARA", "PUTIN"):
     assert "trainer_const " + name not in classes
-    assert re.search(r"\\b" + name + r"\\b", read("data/trainers/ai_pointers.asm")) is None
+    assert re.search(r"\b" + name + r"\b", read("data/trainers/ai_pointers.asm")) is None
 names = read("data/trainers/names.asm")
 assert 'li "GIOVANNI"' in names and 'li "BLAINE"' in names and 'li "CHIEF"' in names
 assert "AgumonSprite" not in read("gfx/sprites.asm")
