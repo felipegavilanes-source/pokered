@@ -1,9 +1,9 @@
-"""Full-body Xi Jinping trainer portrait, custom-pixel-refined face, Game Boy DMG 56x56.
+"""Full-body Xi Jinping trainer portrait, native 56x56 hand-adjusted facial features, Game Boy DMG 56x56.
 Four shades, reproducibly embedded as zlib-compressed palette indices.
 """
 import base64
 import zlib
-PIXELS = "eNrNlksOAzEIQ2P7/nfuAElTzWxw2kWRRt3kFTCfZIx/MVzmUyzzMVwUQBdTGkUnVihcARmqAVLrD7wcU8r8ImAYcUoXlwkaXAgJZflCnH56GHVYmaDDoUoXP/C5qY4jZ4KlaJ/jdBMwrTYbKeNVB9rTEJXz+zpqOGi7i8RgpjfHADWD3fqBy0IVtckn1gK3uxXsFxyNMLd1io958EbihFMjQd45pa7oNebdXyNOPbjYTp3V+ZClt9EeYbK5CLO/ElZFKbexaV1mpxxP/a3cNA3WUuK8N+lxpan6ZUhdNDtT/oIRMDvA5LJXw631comsTjjuYexzKq4C9fxhczBk0ebkcByuvw8xJsemu73A1pLqXe18j3iNQ+cSrOFZB7mGyX8d4+y5/HN7AfP8BlE="
+PIXELS = "eNrNllmOxCAMRG3X/e882MbQ6fmpamkWogQi8VLGC8TsnzRkC5WKotyhii1mUdDAllrPdUmY4zSe7Pk1MAhLfIrANa51wgAldK8vPOcpl0Au1BWHrkfNd1NSBnZFFLkG2khXsvMO3bUM9f0BMUF9dEKriAFFK5EGZiFJcgGP8OyyfgUTI1bl1Z0d55qcGQUh9piKRc7b5P0Gx2EUT8+Zebl6AyM4nBdQF8MdgbpxRUnusT5CEC8g/GCkoY84cH75NA7WLuxNPkLYsjEZhjGazO1NxQkDW0Ynr/caf5wbb7SHgt4k3uIgHLeHc2GnmLiJ5+2kTFGCmbbjNimjcLHLj4/C5ey3uF21u/w+4DS3WDvTDWSpP7mTN8r/SwwH4UCKOb6qGFgQ579uhuC5b/+Gf92+AEhoBrE="
 def xi_jinping_portrait():
     raw = zlib.decompress(base64.b64decode(PIXELS))
     assert len(raw) == 56 * 56 and set(raw) <= {0, 1, 2, 3}
