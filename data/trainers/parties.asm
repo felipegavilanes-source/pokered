@@ -47,16 +47,6 @@ TrainerDataPointers:
 	dw ChannelerData
 	dw AgathaData
 	dw LanceData
-	dw MessiData
-	dw CR7Data
-	dw ElonMuskData
-	dw JeffBezosData
-	dw BillGatesData
-	dw SteveJobsData
-	dw KimJongUnData
-	dw MaduroData
-	dw CheGuevaraData
-	dw PutinData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -508,17 +498,13 @@ Rival1Data:
 	db $FF, 18, PIDGEOTTO, 15, ABRA, 15, RATTATA, 17, MAGIKARP, 0
 
 ProfOakData:
-; Challenge Edition: Champion Island postgame battle team.
-; Mew's four moves are overridden in read_trainer_party.asm.
-	 db $FF, 75, DRAGONITE, 76, SNORLAX, 77, GENGAR, 78, ALAKAZAM, 79, GYARADOS, 85, MEW, 0
-; Unused original variants
+; Unused
 	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, BLASTOISE, 70, GYARADOS, 0
 	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, VENUSAUR, 70, GYARADOS, 0
 	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, CHARIZARD, 70, GYARADOS, 0
 
 ChiefData:
-; Challenge Edition: Neymar, secret football-themed trainer in Viridian Forest.
-	db $FF, 13, PIKACHU, 14, MANKEY, 15, MEOWTH, 0
+; none
 
 ScientistData:
 ; Unused
@@ -764,39 +750,3 @@ AgathaData:
 
 LanceData:
 	db $FF, 58, GYARADOS, 56, DRAGONAIR, 56, DRAGONAIR, 60, AERODACTYL, 62, DRAGONITE, 0
-
-; Challenge Edition football legends
-MessiData:
-	db $FF, 29, PIKACHU, 30, PERSIAN, 31, ALAKAZAM, 0
-
-CR7Data:
-	db $FF, 39, MACHAMP, 40, RAPIDASH, 41, PIDGEOT, 0
-
-; Viridian Gym technology-themed challenger
-ElonMuskData:
-	db $FF, 48, MAGNETON, 49, ELECTRODE, 50, RAICHU, 0
-
-; Viridian Gym commerce-themed challenger
-JeffBezosData:
-	db $FF, 48, PERSIAN, 49, KANGASKHAN, 50, SNORLAX, 0
-
-; Viridian Gym software-themed challenger
-BillGatesData:
-	db $FF, 48, PORYGON, 49, MAGNETON, 50, ALAKAZAM, 0
-
-; Viridian Gym design-themed challenger
-SteveJobsData:
-	db $FF, 48, PORYGON, 49, ELECTABUZZ, 50, STARMIE, 0
-
-; Cinnabar Gym challenger
-KimJongUnData:
-	db $FF, 48, ELECTRODE, 49, MAGMAR, 50, GOLEM, 0
-
-MaduroData:
-	db $FF, 48, MAGMAR, 49, ARCANINE, 50, RAPIDASH, 0
-
-CheGuevaraData:
-	db $FF, 48, SCYTHER, 49, PRIMEAPE, 50, CHARIZARD, 0
-
-PutinData:
-	db $FF, 48, NINETALES, 49, DEWGONG, 50, BLASTOISE, 0

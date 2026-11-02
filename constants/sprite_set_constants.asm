@@ -12,8 +12,6 @@
 	const SPRITESET_SILENCE_BRIDGE  ; 08
 	const SPRITESET_CYCLING_ROAD    ; 09
 	const SPRITESET_FUCHSIA         ; 0a
-	const SPRITESET_PALLET_AGUMON   ; 0b (exclusive to Pallet Town)
-	const SPRITESET_ROUTE9_MESSI   ; 0c (exclusive to Route 9)
 DEF NUM_SPRITE_SETS EQU const_value - 1
 
 ; split sprite set ids

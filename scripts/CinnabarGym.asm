@@ -24,10 +24,10 @@ CinnabarGymSetMapAndTiles:
 	jp LoadGymLeaderAndCityName
 
 .CityName:
-	db "COMUNIST ISLAND@"
+	db "CINNABAR ISLAND@"
 
 .LeaderName:
-	db "XI JINPING@"
+	db "BLAINE@"
 
 CinnabarGymResetScripts:
 	xor a ; SCRIPT_CINNABARGYM_DEFAULT

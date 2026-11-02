@@ -29,8 +29,8 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; BIRD_KEEPER
 	dbw 2, BlackbeltAI ; BLACKBELT
 	dbw 1, Rival1AI ; RIVAL1
-	dbw 2, ProfessorOakAI ; PROF_OAK
-	dbw 1, NeymarAI ; CHIEF
+	dbw 3, GenericAI ; PROF_OAK
+	dbw 3, GenericAI ; CHIEF
 	dbw 3, GenericAI ; SCIENTIST
 	dbw 1, GiovanniAI ; GIOVANNI
 	dbw 3, GenericAI ; ROCKET
@@ -51,14 +51,4 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; CHANNELER
 	dbw 2, AgathaAI ; AGATHA
 	dbw 1, LanceAI ; LANCE
-	dbw 2, Rival2AI ; MESSI
-	dbw 2, Rival2AI ; CR7
-	dbw 2, Rival2AI ; ELON_MUSK
-	dbw 2, Rival2AI ; JEFF_BEZOS
-	dbw 2, Rival2AI ; BILL_GATES
-	dbw 2, Rival2AI ; STEVE_JOBS
-	dbw 2, Rival2AI ; KIM_JONG_UN
-	dbw 2, Rival2AI ; MADURO
-	dbw 2, Rival2AI ; CHE_GUEVARA
-	dbw 2, Rival2AI ; PUTIN
 	assert_table_length NUM_TRAINERS

@@ -283,18 +283,16 @@ ViridianGymCooltrainerM1Text:
 	jp TextScriptEnd
 
 ViridianGymCooltrainerM1BattleText:
-	text "LET'S LAUNCH"
-	line "THIS BATTLE!"
-	done
+	text_far _ViridianGymCooltrainerM1BattleText
+	text_end
 
 ViridianGymCooltrainerM1EndBattleText:
-	text "SYSTEM FAILURE!"
-	prompt
+	text_far _ViridianGymCooltrainerM1EndBattleText
+	text_end
 
 ViridianGymCooltrainerM1AfterBattleText:
-	text "BACK TO THE"
-	line "DRAWING BOARD!"
-	done
+	text_far _ViridianGymCooltrainerM1AfterBattleText
+	text_end
 
 ViridianGymHiker1Text:
 	text_asm
@@ -303,17 +301,16 @@ ViridianGymHiker1Text:
 	jp TextScriptEnd
 
 ViridianGymHiker1BattleText:
-	text "ONE MORE THING..."
-	line "LET'S BATTLE!"
-	done
+	text_far _ViridianGymHiker1BattleText
+	text_end
 
 ViridianGymHiker1EndBattleText:
-	text "THINK DIFFERENT!"
-	prompt
+	text_far _ViridianGymHiker1EndBattleText
+	text_end
 
 ViridianGymHiker1AfterBattleText:
-	text "BACK TO DESIGN!"
-	done
+	text_far _ViridianGymHiker1AfterBattleText
+	text_end
 
 ViridianGymRocker1Text:
 	text_asm
@@ -358,17 +355,16 @@ ViridianGymCooltrainerM2Text:
 	jp TextScriptEnd
 
 ViridianGymCooltrainerM2BattleText:
-	text "YOUR ORDER IS"
-	line "A BIG BATTLE!"
-	done
+	text_far _ViridianGymCooltrainerM2BattleText
+	text_end
 
 ViridianGymCooltrainerM2EndBattleText:
-	text "DELIVERY FAILED!"
-	prompt
+	text_far _ViridianGymCooltrainerM2EndBattleText
+	text_end
 
 ViridianGymCooltrainerM2AfterBattleText:
-	text "BACK TO WORK!"
-	done
+	text_far _ViridianGymCooltrainerM2AfterBattleText
+	text_end
 
 ViridianGymHiker3Text:
 	text_asm
@@ -413,17 +409,16 @@ ViridianGymCooltrainerM3Text:
 	jp TextScriptEnd
 
 ViridianGymCooltrainerM3BattleText:
-	text "TIME FOR A"
-	line "SYSTEM UPDATE!"
-	done
+	text_far _ViridianGymCooltrainerM3BattleText
+	text_end
 
 ViridianGymCooltrainerM3EndBattleText:
-	text "BLUE SCREEN!"
-	prompt
+	text_far _ViridianGymCooltrainerM3EndBattleText
+	text_end
 
 ViridianGymCooltrainerM3AfterBattleText:
-	text "I NEED A PATCH!"
-	done
+	text_far _ViridianGymCooltrainerM3AfterBattleText
+	text_end
 
 ViridianGymGymGuideText:
 	text_asm

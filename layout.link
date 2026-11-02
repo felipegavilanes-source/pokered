@@ -177,9 +177,6 @@ ROMX $2B
 	"Pokédex Text"
 ROMX $2C
 	"Move Names"
-ROMX $2D
-	"Challenge Trainer Pics"
-	"Challenge Overworld Sprites"
 WRAM0
 	"Audio RAM"
 	org $c100

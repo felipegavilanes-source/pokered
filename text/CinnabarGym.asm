@@ -1,40 +1,45 @@
 _CinnabarGymBlainePreBattleText::
-	text "WELCOME TO"
-	line "COMUNIST GYM!"
+	text "Hah!"
 
-	para "I AM XI JINPING!"
-	line "MY FIRE #MON"
-	cont "ARE READY!"
+	para "I am BLAINE! I"
+	line "am the LEADER of"
+	cont "CINNABAR GYM!"
 
-	para "SHOW ME YOUR"
-	line "BEST STRATEGY!"
+	para "My fiery #MON"
+	line "will incinerate"
+	cont "all challengers!"
+
+	para "Hah! You better"
+	line "have BURN HEAL!"
 	done
 
 _CinnabarGymBlaineReceivedVolcanoBadgeText::
-	text "IMPRESSIVE!"
-	line "YOU HAVE WON!"
+	text "I have"
+	line "burnt out!"
 
-	para "YOU HAVE EARNED"
-	line "THE VOLCANOBADGE!@"
+	para "You have earned"
+	line "the VOLCANOBADGE!@"
 	text_end
 
 _CinnabarGymBlainePostBattleAdviceText::
-	text "A STRONG TEAM"
-	line "NEEDS PATIENCE"
-	cont "AND STRATEGY!"
+	text "FIRE BLAST is the"
+	line "ultimate fire"
+	cont "technique!"
 
-	para "USE FIRE BLAST"
-	line "WITH CARE!"
+	para "Don't waste it on"
+	line "water #MON!"
 	done
 
 _CinnabarGymBlaineVolcanoBadgeInfoText::
-	text "THE VOLCANOBADGE"
-	line "BOOSTS THE"
-	cont "SPECIAL POWER"
-	cont "OF YOUR #MON!"
+	text "Hah!"
 
-	para "ACCEPT THIS TM"
-	line "AS A REWARD!"
+	para "The VOLCANOBADGE"
+	line "heightens the"
+	cont "SPECIAL abilities"
+	cont "of your #MON!"
+
+	para "Here, you can"
+	line "have this too!"
 	done
 
 _CinnabarGymBlaineReceivedTM38Text::
@@ -64,60 +69,77 @@ _CinnabarGymBlaineTM38NoRoomText::
 	done
 
 _CinnabarGymSuperNerd1BattleText::
-	text "MY TEAM IS"
-	line "UNSTOPPABLE!"
+	text "Do you know how"
+	line "hot #MON fire"
+	cont "breath can get?"
 	done
 
 _CinnabarGymSuperNerd1EndBattleText::
-	text "IMPOSSIBLE!"
+	text "Yow!"
+	line "Hot, hot, hot!"
 	prompt
 
 _CinnabarGymSuperNerd1AfterBattleText::
-	text "I MUST TRAIN"
-	line "EVEN HARDER!"
+	text "Fire, or to be"
+	line "more precise,"
+	cont "combustion..."
+
+	para "Blah, blah, blah,"
+	line "blah..."
 	done
 
 _CinnabarGymSuperNerd2BattleText::
-	text "MY FIRE TEAM IS"
-	line "READY TO FIGHT!"
+	text "I was a thief, but"
+	line "I became straight"
+	cont "as a trainer!"
 	done
 
 _CinnabarGymSuperNerd2EndBattleText::
-	text "YOU WIN!"
+	text "I"
+	line "surrender!"
 	prompt
 
 _CinnabarGymSuperNerd2AfterBattleText::
-	text "I NEED PRACTICE!"
+	text "I can't help"
+	line "stealing other"
+	cont "people's #MON!"
 	done
 
 _CinnabarGymSuperNerd3BattleText::
-	text "LET'S SEE YOUR"
-	line "BATTLE SPIRIT!"
+	text "You can't win!"
+	line "I have studied"
+	cont "#MON totally!"
 	done
 
 _CinnabarGymSuperNerd3EndBattleText::
-	text "WELL PLAYED!"
+	text "Waah!"
+	line "My studies!"
 	prompt
 
 _CinnabarGymSuperNerd3AfterBattleText::
-	text "KEEP TRAINING!"
+	text "My theories are"
+	line "too complicated"
+	cont "for you!"
 	done
 
 _CinnabarGymSuperNerd4BattleText::
-	text "I HAVE A"
-	line "STRONG DEFENSE!"
+	text "I just like using"
+	line "fire #MON!"
 	done
 
 _CinnabarGymSuperNerd4EndBattleText::
-	text "I LOST!"
+	text "Too hot"
+	line "to handle!"
 	prompt
 
 _CinnabarGymSuperNerd4AfterBattleText::
-	text "A TOUGH MATCH!"
+	text "I wish there was"
+	line "a thief #MON!"
+	cont "I'd use that!"
 	done
 
 _CinnabarGymSuperNerd5BattleText::
-	text "I know why XI JINPING"
+	text "I know why BLAINE"
 	line "became a trainer!"
 	done
 
@@ -126,13 +148,13 @@ _CinnabarGymSuperNerd5EndBattleText::
 	prompt
 
 _CinnabarGymSuperNerd5AfterBattleText::
-	text "XI JINPING was lost"
+	text "BLAINE was lost"
 	line "in the mountains"
 	cont "when a fiery bird"
 	cont "#MON appeared."
 
 	para "Its light enabled"
-	line "XI JINPING to find"
+	line "BLAINE to find"
 	cont "his way down!"
 	done
 
@@ -174,7 +196,7 @@ _CinnabarGymGymGuideChampInMakingText::
 	line "making!"
 
 	para "The hot-headed"
-	line "XI JINPING is a fire"
+	line "BLAINE is a fire"
 	cont "#MON pro!"
 
 	para "Douse his spirits"

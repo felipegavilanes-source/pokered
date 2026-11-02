@@ -8,14 +8,11 @@
 	const_export ROUTE21_SWIMMER5
 	const_export ROUTE21_FISHER3
 	const_export ROUTE21_FISHER4
-	const_export ROUTE21_CHAMPION_OAK
 
 Route21_Object:
 	db $43 ; border block
 
 	def_warp_events
-	warp_event 10, 44, CHAMPION_ISLAND_GYM, 1
-	warp_event 11, 44, CHAMPION_ISLAND_GYM, 1
 
 	def_bg_events
 
@@ -29,8 +26,5 @@ Route21_Object:
 	object_event 15, 71, SPRITE_SWIMMER, STAY, LEFT, TEXT_ROUTE21_SWIMMER5, OPP_SWIMMER, 15
 	object_event 14, 56, SPRITE_FISHER, STAY, LEFT, TEXT_ROUTE21_FISHER3, OPP_FISHER, 8
 	object_event 17, 57, SPRITE_FISHER, STAY, RIGHT, TEXT_ROUTE21_FISHER4, OPP_FISHER, 10
-
-	; Champion Island, in the middle of Route 21 (postgame battle).
-
 
 	def_warps_to ROUTE_21

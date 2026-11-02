@@ -621,7 +621,7 @@ SlowpokeEvosMoves:
 
 KadabraEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 37, ALAKAZAM
+	db EVOLVE_TRADE, 1, ALAKAZAM
 	db 0
 ; Learnset
 	db 16, CONFUSION
@@ -634,7 +634,7 @@ KadabraEvosMoves:
 
 GravelerEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 40, GOLEM
+	db EVOLVE_TRADE, 1, GOLEM
 	db 0
 ; Learnset
 	db 11, DEFENSE_CURL
@@ -659,7 +659,7 @@ ChanseyEvosMoves:
 
 MachokeEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 40, MACHAMP
+	db EVOLVE_TRADE, 1, MACHAMP
 	db 0
 ; Learnset
 	db 20, LOW_KICK
@@ -1578,7 +1578,8 @@ MagikarpEvosMoves:
 	db EVOLVE_LEVEL, 20, GYARADOS
 	db 0
 ; Learnset
-	db 0 ; TACKLE is available from level 1 in Challenge Edition
+	db 15, TACKLE
+	db 0
 
 MissingNo86EvosMoves:
 ; Evolutions
@@ -1692,7 +1693,7 @@ MissingNo92EvosMoves:
 
 HaunterEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 38, GENGAR
+	db EVOLVE_TRADE, 1, GENGAR
 	db 0
 ; Learnset
 	db 29, HYPNOSIS

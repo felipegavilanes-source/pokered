@@ -62,14 +62,4 @@ ENDM
 	trainer_const CHANNELER      ; $2D
 	trainer_const AGATHA         ; $2E
 	trainer_const LANCE          ; $2F
-	trainer_const MESSI          ; Challenge Edition
-	trainer_const CR7            ; Challenge Edition
-	trainer_const ELON_MUSK      ; Challenge Edition
-	trainer_const JEFF_BEZOS     ; Challenge Edition
-	trainer_const BILL_GATES     ; Challenge Edition
-	trainer_const STEVE_JOBS     ; Challenge Edition
-	trainer_const KIM_JONG_UN    ; Challenge Edition
-	trainer_const MADURO ; Challenge Edition
-	trainer_const CHE_GUEVARA ; Challenge Edition
-	trainer_const PUTIN ; Challenge Edition
 DEF NUM_TRAINERS EQU const_value - 1

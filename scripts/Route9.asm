@@ -109,17 +109,16 @@ Route9CooltrainerF1AfterBattleText:
 	text_end
 
 Route9CooltrainerM1BattleText:
-	text "READY FOR SOME"
-	line "FOOTBALL MAGIC?"
-	done
+	text_far _Route9CooltrainerM1BattleText
+	text_end
 
 Route9CooltrainerM1EndBattleText:
-	text "WELL PLAYED!"
-	prompt
+	text_far _Route9CooltrainerM1EndBattleText
+	text_end
 
 Route9CooltrainerM1AfterBattleText:
-	text "KEEP PRACTICING!"
-	done
+	text_far _Route9CooltrainerM1AfterBattleText
+	text_end
 
 Route9CooltrainerM2BattleText:
 	text_far _Route9CooltrainerM2BattleText

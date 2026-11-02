@@ -187,27 +187,6 @@ gfx/tilesets/reds_house.2bpp: tools/gfx += --preserve=0x48
 gfx/trade/game_boy.2bpp: tools/gfx += --remove-duplicates
 
 
-### Challenge Edition: reproducible four-shade football trainer portraits
-# Explicit PNG targets override the catch-all empty PNG rule below.
-gfx/trainers/messi.png gfx/trainers/cr7.png gfx/trainers/neymar.png gfx/trainers/trump.png gfx/trainers/elon_musk.png gfx/trainers/jeff_bezos.png gfx/trainers/bill_gates.png gfx/trainers/steve_jobs.png gfx/trainers/xi_jinping.png gfx/trainers/kim_jong_un.png gfx/trainers/maduro.png gfx/trainers/che_guevara.png gfx/trainers/putin.png: gfx/trainers/%.png: tools/generate_football_trainer.py tools/football_redesign.py tools/neymar_reference.py tools/messi_reference.py tools/cr7_reference.py tools/trump_reference.py tools/elon_musk_reference.py tools/jeff_bezos_reference.py tools/xi_jinping_reference.py
-	python3 $< $* $@
-
-# CR7 overworld graphic (six 16x16 frames).
-gfx/sprites/cr7.png: tools/create_cr7_sprite.py
-	python3 $<
-
-# Messi's unique NPC sheet is compiled in the same six-frame Gen 1 layout.
-gfx/sprites/messi.png: tools/create_messi_sprite.py
-	python3 $<
-
-# Neymar's overworld uses a standalone 6-frame 16x96 sheet.
-gfx/sprites/neymar.png: tools/create_neymar_sprite.py
-	python3 $<
-
-# Always regenerate Agumon graphics correctly for local and CI builds.
-gfx/sprites/agumon.png: tools/create_agumon_sprite.py
-	python3 $<
-
 ### Catch-all graphics rules
 
 %.2bpp: %.png

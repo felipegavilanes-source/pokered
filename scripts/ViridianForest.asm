@@ -87,18 +87,16 @@ ViridianForestYoungster3AfterBattleText:
 	text_end
 
 ViridianForestYoungster4BattleText:
-	text "HEY, CHAMP!"
-	line "LET'S PLAY!"
-	done
+	text_far _ViridianForestYoungster4BattleText
+	text_end
 
 ViridianForestYoungster4EndBattleText:
-	text "WHAT A GOAL!"
-	prompt
+	text_far _ViridianForestYoungster4EndBattleText
+	text_end
 
 ViridianForestYoungster4AfterBattleText:
-	text "YOU'RE A REAL"
-	line "CHAMPION!"
-	done
+	text_far _ViridianForestYoungster4AfterBattleText
+	text_end
 
 ViridianForestYoungster5Text:
 	text_far _ViridianForestYoungster5Text

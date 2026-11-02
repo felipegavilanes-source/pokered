@@ -373,28 +373,3 @@ LoreleiPic::       INCBIN "gfx/trainers/lorelei.pic"
 ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
-
-SECTION "Challenge Trainer Pics", ROMX
-
-; Challenge Edition football trainer portraits
-NeymarPic:: INCBIN "gfx/trainers/neymar.pic"
-MessiPic:: INCBIN "gfx/trainers/messi.pic"
-CR7Pic:: INCBIN "gfx/trainers/cr7.pic"
-
-TrumpPic:: INCBIN "gfx/trainers/trump.pic"
-
-ElonMuskPic:: INCBIN "gfx/trainers/elon_musk.pic"
-
-JeffBezosPic:: INCBIN "gfx/trainers/jeff_bezos.pic"
-
-BillGatesPic:: INCBIN "gfx/trainers/bill_gates.pic"
-
-SteveJobsPic:: INCBIN "gfx/trainers/steve_jobs.pic"
-
-XiJinpingPic:: INCBIN "gfx/trainers/xi_jinping.pic"
-
-KimJongUnPic:: INCBIN "gfx/trainers/kim_jong_un.pic"
-
-MaduroPic:: INCBIN "gfx/trainers/maduro.pic"
-CheGuevaraPic:: INCBIN "gfx/trainers/che_guevara.pic"
-PutinPic:: INCBIN "gfx/trainers/putin.pic"

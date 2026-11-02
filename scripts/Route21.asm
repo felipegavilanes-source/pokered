@@ -24,7 +24,6 @@ Route21_TextPointers:
 	dw_const Route21Swimmer5Text, TEXT_ROUTE21_SWIMMER5
 	dw_const Route21Fisher3Text,  TEXT_ROUTE21_FISHER3
 	dw_const Route21Fisher4Text,  TEXT_ROUTE21_FISHER4
-	dw_const Route21ChampionOakText, TEXT_ROUTE21_CHAMPION_OAK
 
 Route21TrainerHeaders:
 	def_trainers
@@ -209,33 +208,3 @@ Route21Fisher4EndBattleText:
 Route21Fisher4AfterBattleText:
 	text_far _Route21Fisher4AfterBattleText
 	text_end
-
-; The Hall of Fame sets BIT_UNUSED_BEAT_ELITE_4 permanently after the first win.
-; Oak cannot be challenged before the player has completed the main game.
-Route21ChampionOakText:
-	text_asm
-	ld hl, Route21OakLockedText
-	call PrintText
-	jp TextScriptEnd
-
-
-Route21OakLockedText:
-	text "Only a CHAMPION"
-	line "may challenge me."
-	prompt
-
-Route21OakBattleText:
-	text "So, you've come"
-	line "this far!"
-	para "Show me your true"
-	line "strength!"
-	done
-
-Route21OakEndBattleText:
-	text "Remarkable!"
-	prompt
-
-Route21OakAfterBattleText:
-	text "You have surpassed"
-	line "even me!"
-	prompt

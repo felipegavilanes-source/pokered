@@ -40,15 +40,12 @@ jobs:
           make DEBUG=1 -j$(nproc) compare
           .github/checkdiff.sh
 
-      - name: Generate Agumon sprite
-        run: python3 tools/create_agumon_sprite.py
-
       - name: Make
         if: ${{ github.repository_owner != 'pret' }}
         run: |
           make -j$(nproc)
           .github/checkdiff.sh
-          python3 tools/check_challenge_graphics.py
+          python3 tools/check_challenge_core.py
 
       - name: Upload Challenge Edition ROM
         if: ${{ github.repository_owner != 'pret' && github.ref == 'refs/heads/challenge-edition' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
@@ -56,26 +53,6 @@ jobs:
         with:
           name: pokemon-blue-challenge-edition
           path: pokeblue.gbc
-          if-no-files-found: error
-
-      - name: Upload Agumon overworld sprite
-        if: ${{ github.repository_owner != 'pret' && github.ref == 'refs/heads/challenge-edition' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: agumon-overworld-sprite
-          path: gfx/sprites/agumon.png
-          if-no-files-found: error
-
-      - name: Upload Messi sprite previews
-        if: ${{ github.repository_owner != 'pret' && github.ref == 'refs/heads/challenge-edition' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: football-sprite-previews
-          path: |
-            gfx/trainers/messi.png
-            gfx/trainers/cr7.png
-            gfx/trainers/trump.png
-            gfx/sprites/messi.png
           if-no-files-found: error
 
       - name: Checkout symbols
@@ -128,12 +105,9 @@ jobs:
           make DEBUG=1 -j$(sysctl -n hw.ncpu) compare
           .github/checkdiff.sh
 
-      - name: Generate Agumon sprite
-        run: python3 tools/create_agumon_sprite.py
-
       - name: Make
         if: ${{ github.repository_owner != 'pret' }}
         run: |
           make -j$(sysctl -n hw.ncpu)
           .github/checkdiff.sh
-          python3 tools/check_challenge_graphics.py
+          python3 tools/check_challenge_core.py

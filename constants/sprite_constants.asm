@@ -52,12 +52,10 @@
 	const SPRITE_KOGA                    ; $30
 	const SPRITE_GUARD                   ; $31
 	const SPRITE_UNUSED_GUARD            ; $32
-DEF SPRITE_MESSI EQU SPRITE_UNUSED_GUARD ; only used for Messi on Route 9
 	const SPRITE_MOM                     ; $33
 	const SPRITE_BALDING_GUY             ; $34
 	const SPRITE_LITTLE_BOY              ; $35
 	const SPRITE_UNUSED_GAMEBOY_KID      ; $36
-DEF SPRITE_NEYMAR EQU SPRITE_UNUSED_GAMEBOY_KID ; dedicated custom sprite ID
 	const SPRITE_GAMEBOY_KID             ; $37
 	const SPRITE_FAIRY                   ; $38
 	const SPRITE_AGATHA                  ; $39

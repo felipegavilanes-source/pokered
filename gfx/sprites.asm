@@ -1,6 +1,5 @@
 SECTION "NPC Sprites 1", ROMX
 
-AgumonSprite::           INCBIN "gfx/sprites/agumon.2bpp"
 ScientistSprite::        INCBIN "gfx/sprites/scientist.2bpp"
 RockerSprite::           INCBIN "gfx/sprites/rocker.2bpp"
 SwimmerSprite::          INCBIN "gfx/sprites/swimmer.2bpp"
@@ -72,7 +71,3 @@ AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
 BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
 LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
-
-SECTION "Challenge Overworld Sprites", ROMX
-NeymarSprite:: INCBIN "gfx/sprites/neymar.2bpp"
-MessiSprite:: INCBIN "gfx/sprites/messi.2bpp"

@@ -53,7 +53,7 @@ ReadTrainer:
 .LoopTrainerData
 	ld a, [hli]
 	and a ; have we reached the end of the trainer data?
-	jp z, .FinishUp
+	jr z, .FinishUp
 	ld [wCurPartySpecies], a
 	ld a, ENEMY_PARTY_DATA
 	ld [wMonDataLocation], a
@@ -97,24 +97,6 @@ ReadTrainer:
 	ld [hl], d
 	jr .FinishUp
 .AddTeamMove
-; Champion Island: Professor Oak's sixth Pokemon is a custom Mew.
-	ld a, [wTrainerClass]
-	cp PROF_OAK
-	jr nz, .checkRegularTeamMove
-	ld a, [wTrainerNo]
-	cp 1
-	jr nz, .checkRegularTeamMove
-	ld hl, wEnemyMon6Moves
-	ld a, MINIMIZE
-	ld [hli], a
-	ld a, TOXIC
-	ld [hli], a
-	ld a, THUNDER_WAVE
-	ld [hli], a
-	ld a, PSYCHIC_M
-	ld [hl], a
-	jr .FinishUp
-.checkRegularTeamMove
 ; check if our trainer's team has special moves
 
 ; get trainer class number

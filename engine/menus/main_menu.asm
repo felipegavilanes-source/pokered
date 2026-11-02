@@ -320,24 +320,6 @@ StartNewGame:
 	; fallthrough
 StartNewGameDebug:
 	call OakSpeech
-	; Challenge Edition starting supplies for a fresh save only.
-	ld hl, wNumBagItems
-	ld a, 3
-	ld [hli], a
-	ld a, POTION
-	ld [hli], a
-	ld a, 99
-	ld [hli], a
-	ld a, POKE_BALL
-	ld [hli], a
-	ld a, 99
-	ld [hli], a
-	ld a, RARE_CANDY
-	ld [hli], a
-	ld a, 10
-	ld [hli], a
-	ld a, $ff
-	ld [hl], a
 	ld c, 20
 	call DelayFrames
 

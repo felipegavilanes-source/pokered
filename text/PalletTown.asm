@@ -54,16 +54,3 @@ _PalletTownPlayersHouseSignText::
 _PalletTownRivalsHouseSignText::
 	text "<RIVAL>'s house "
 	done
-
-_PalletTownAgumonText::
-	text "AGUMON: Agu agu!"
-	line "DIGIMON is better"
-	cont "than #MON!"
-
-	para "I can turn into"
-	line "GREYMON! What can"
-	cont "your PIKACHU do?"
-
-	para "Haha! Don't try"
-	line "to catch me!"
-	done

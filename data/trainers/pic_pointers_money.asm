@@ -33,9 +33,9 @@ TrainerPicAndMoneyPointers::
 	pic_money BlackbeltPic,    2500
 	pic_money Rival1Pic,       3500
 	pic_money ProfOakPic,      9900
-	pic_money NeymarPic,       3000
+	pic_money ChiefPic,        3000
 	pic_money ScientistPic,    5000
-	pic_money TrumpPic,        9900
+	pic_money GiovanniPic,     9900
 	pic_money RocketPic,       3000
 	pic_money CooltrainerMPic, 3500
 	pic_money CooltrainerFPic, 3500
@@ -45,7 +45,7 @@ TrainerPicAndMoneyPointers::
 	pic_money LtSurgePic,      9900
 	pic_money ErikaPic,        9900
 	pic_money KogaPic,         9900
-	pic_money XiJinpingPic,    9900
+	pic_money BlainePic,       9900
 	pic_money SabrinaPic,      9900
 	pic_money GentlemanPic,    7000
 	pic_money Rival2Pic,       6500
@@ -54,14 +54,4 @@ TrainerPicAndMoneyPointers::
 	pic_money ChannelerPic,    3000
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
-	pic_money MessiPic,        5000 ; MESSI
-	pic_money CR7Pic,          5000 ; CR7
-	pic_money ElonMuskPic,     5000 ; ELON_MUSK
-	pic_money JeffBezosPic,    5000 ; JEFF_BEZOS
-	pic_money BillGatesPic,    5000 ; BILL_GATES
-	pic_money SteveJobsPic,    5000 ; STEVE_JOBS
-	pic_money KimJongUnPic,    5000 ; KIM_JONG_UN
-	pic_money MaduroPic, 5000 ; MADURO
-	pic_money CheGuevaraPic, 5000 ; CHE_GUEVARA
-	pic_money PutinPic, 5000 ; PUTIN
 	assert_table_length NUM_TRAINERS

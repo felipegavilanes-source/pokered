@@ -387,14 +387,6 @@ CooltrainerFAI:
 	jp AISwitchIfEnoughMons
 
 ; Champion Island postgame boss: can heal twice per Pokemon when sufficiently injured.
-ProfessorOakAI:
-	cp 50 percent + 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
-
 BrockAI:
 ; if his active monster has a status condition, use a full heal
 	ld a, [wEnemyMonStatus]
@@ -497,14 +489,6 @@ LanceAI:
 	jp AIUseHyperPotion
 
 ; Neymar can occasionally heal his team during the early-game challenge.
-NeymarAI:
-	cp 25 percent + 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUsePotion
-
 GenericAI:
 	and a ; clear carry
 	ret
