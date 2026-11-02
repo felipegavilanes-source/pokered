@@ -1,9 +1,9 @@
-"""Donald Trump full-body battle portrait from the latest user-provided image.
-56x56 pixels, four Game Boy shades.
+"""Donald Trump full-body trainer portrait with improved facial readability.
+56x56 pixels, four Game Boy shades. Based on the approved revised artwork.
 """
 import base64
 import zlib
-PIXELS = "eNrVlssWAyEIQyX5/3+ugPjoOZ0Bd3XVhddECHZa+/slum6oG3Lur4Gyy1ZthtlqTfx2aFdczahgAyuCCDFBuemuWeeMwh1HFHOGkKvlBSQUElZQQLezAwqDSbCLdKbXs+v6CVm5btM64FhS0CzCOXEQmZLAijJsjiVvU2cFDM4ZvgiKboZjtJhFXZ9BmdjiDOOTU1UzBTouURN68/FQRtvZr+XXG1XpTVDwZy88V+tXYPRq/RwomUd6xtzdMCh4mETZOxgdH6fhPd+zZzvXEtwG2RExI28pHcM3eDL7cstKiYYgP/FTjbpakeNxv+TA70UtPEu2/WxEWq+1siBXnkuCGAMQGa0YpcSTWHl5GXlmSZCceSbyghYU2WOeu92RL2Zv+NU1WaaL/4X6Ml594pWm6ShvZZxOp7dGb79i//Lj+wNVwgVX"
+PIXELS = "eNqtlo2OwzAIgwN+/3c+MJBOd9cWolXaj6Z9NRgn6VpfvpDXFPM3cbzPiNi/Jb7VLdpsvewm/dZSSVTVPnWNSEBI9wuFyZCxGk0SEzfpiLDiASecXZoy4cyMcEZGenqNUiajRwbFzVEMY0Y5ha4TbhjtqBIYBftjEVkE2oqAhyR8ZHSaIMTMAINiplCxhwUHppPinVHYHwHqxfwNeuaQjoTG8pWH6vYJRNgolEuOiL/dhnTbTuN9gxFaktzdMOrXoJSLaIFMFHpnaknwsjKDS3V5alF9kdewfSNbpUPFm72U3WUX3pTEWoj6OImbFrE7iJh5vHZfuRHjbTtLvWzvIp7A6Kq4MsS2HHnnwPXwydE4vHN74sW9ruGY/E7YZdfrcqpYTo/OK87A5HjI8sqXoV5hiilX9ow4zTwPwJ3L2BFHYMYSU8FaUiMQu7jqEN3zYceybw3yeF8zEHUe/ZrK+EkQ/Qb/Gefpo+jZM6zgWBAn3Owx5hsdHnF/rh88bQcp"
 def trump_portrait():
     raw = zlib.decompress(base64.b64decode(PIXELS))
     assert len(raw) == 56 * 56 and set(raw) <= {0, 1, 2, 3}
