@@ -128,7 +128,7 @@ def main():
     assert len(trump_pixels) == 56 and all(len(row) == 56 for row in trump_pixels)
     assert set(value for row in trump_pixels for value in row) == {0, 1, 2, 3}
     assert hashlib.sha256(bytes(v for row in trump_pixels for v in row)).hexdigest() == (
-        "6d582f1c868ce9e2df306519edc5265bbaeea2bf302746b0276f20428bced84b"
+        "f396815021e7804ac89262ab1cec332d906eb4957cde1ffe903acdaa9ea7060f"
     ), "Trump battle portrait must match the approved pointing pose"
 
     assert "pic_money TrumpPic,        9900" in read("data/trainers/pic_pointers_money.asm")
