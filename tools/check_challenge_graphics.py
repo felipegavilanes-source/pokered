@@ -123,6 +123,17 @@ def main():
     assert "return cr7_portrait()" in generator
     assert "from trump_reference import trump_portrait" in generator
     assert "return trump_portrait()" in generator
+    # Xi Jinping portrait is authored at native Game Boy resolution.
+    assert "from xi_jinping_reference import xi_jinping_portrait" in generator
+    assert "return xi_jinping_portrait()" in generator
+    from xi_jinping_reference import xi_jinping_portrait
+    xi_pixels = xi_jinping_portrait()
+    assert len(xi_pixels) == 56 and all(len(row) == 56 for row in xi_pixels)
+    assert set(value for row in xi_pixels for value in row) <= {0, 1, 2, 3}
+    assert hashlib.sha256(bytes(v for row in xi_pixels for v in row)).hexdigest() == (
+        "fa04a0282f3709e9ffc181f102b0154a1f517002c26732e4216e457952017968"
+    ), "Xi Jinping battle portrait changed unexpectedly"
+
     from trump_reference import trump_portrait
     trump_pixels = trump_portrait()
     assert len(trump_pixels) == 56 and all(len(row) == 56 for row in trump_pixels)
