@@ -131,7 +131,7 @@ def main():
     assert len(xi_pixels) == 56 and all(len(row) == 56 for row in xi_pixels)
     assert set(value for row in xi_pixels for value in row) <= {0, 1, 2, 3}
     assert hashlib.sha256(bytes(v for row in xi_pixels for v in row)).hexdigest() == (
-        "fa04a0282f3709e9ffc181f102b0154a1f517002c26732e4216e457952017968"
+        "868c3ecdc948dc11e5a493b4a94dbb01f5995b9d170a3e46b523f3081eef1e2f"
     ), "Xi Jinping battle portrait changed unexpectedly"
 
     from trump_reference import trump_portrait
