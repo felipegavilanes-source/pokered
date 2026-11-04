@@ -40,11 +40,18 @@ jobs:
           make DEBUG=1 -j$(nproc) compare
           .github/checkdiff.sh
 
+      - name: Verify clean checkout
+        if: ${{ github.repository_owner != 'pret' }}
+        run: .github/checkdiff.sh
+
+      - name: Install Pokemon Yellow battle sprites
+        if: ${{ github.repository_owner != 'pret' }}
+        run: python3 tools/install_yellow_sprites.py
+
       - name: Make
         if: ${{ github.repository_owner != 'pret' }}
         run: |
           make -j$(nproc)
-          .github/checkdiff.sh
           python3 tools/check_challenge_core.py
 
       - name: Upload Challenge Edition ROM
@@ -105,9 +112,16 @@ jobs:
           make DEBUG=1 -j$(sysctl -n hw.ncpu) compare
           .github/checkdiff.sh
 
+      - name: Verify clean checkout
+        if: ${{ github.repository_owner != 'pret' }}
+        run: .github/checkdiff.sh
+
+      - name: Install Pokemon Yellow battle sprites
+        if: ${{ github.repository_owner != 'pret' }}
+        run: python3 tools/install_yellow_sprites.py
+
       - name: Make
         if: ${{ github.repository_owner != 'pret' }}
         run: |
           make -j$(sysctl -n hw.ncpu)
-          .github/checkdiff.sh
           python3 tools/check_challenge_core.py
