@@ -9,7 +9,8 @@ InitPlayerData2:
 	ldh a, [hRandomAdd]
 	ld [wPlayerID + 1], a
 
-	ld a, $ff
+	; 0 = Red, 1 = Blue, 2 = Lance (saved in the existing player data).
+	xor a
 	ld [wUnusedPlayerDataByte], a
 
 	ld hl, wPartyCount
