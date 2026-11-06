@@ -40,18 +40,18 @@ try:
     p.tick(100)
     p.button("a")  # FIGHT is the first debug menu entry.
     p.tick(100)
-    # TestBattle calls AddPartyMon, which asks whether to nickname
-    # the starter. Decline it, or the test never starts a battle.
-    p.button("b")
-    p.tick(120)
-    for i in range(120):
+    # The debug battle has a two-stage nickname prompt: first the
+    # dialogue, then the YES/NO menu. Repeat B until battle begins.
+    for _ in range(120):
         if state["exp_draws"]:
             break
+        p.button("b")
         p.tick(60)
     p.tick(120)
     shot = Path("challenge-battle-smoke.png")
     p.screen.image.save(shot)
     print("EXP battle HUD draw calls:", state["exp_draws"])
+    print("EXP tilemap row:", p.tilemap_background[10:18, 11])
     print("Screenshot:", shot)
     if not state["exp_draws"]:
         raise SystemExit("FAIL: EXP bar not reached during debug battle")
