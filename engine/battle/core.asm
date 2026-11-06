@@ -6363,13 +6363,28 @@ SwapPlayerAndEnemyLevels:
 ; (for use when scrolling the player sprite and enemy's silhouettes on screen)
 LoadPlayerBackPic:
 	ld a, [wBattleType]
-	dec a ; is it the old man tutorial?
+	dec a ; preserve Old Man tutorial sprite regardless of selection
+	jr z, .oldMan
+	ld a, [wUnusedPlayerDataByte]
+	cp 1
+	jr z, .blue
+	cp 2
+	jr z, .lance
 	ld de, RedPicBack
-	jr nz, .next
-	ld de, OldManPicBack
-.next
 	ld a, BANK(RedPicBack)
-	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
+	jr .load
+.oldMan
+	ld de, OldManPicBack
+	ld a, BANK(OldManPicBack)
+	jr .load
+.blue
+	ld de, BluePicBack
+	ld a, BANK(BluePicBack)
+	jr .load
+.lance
+	ld de, LancePicBack
+	ld a, BANK(LancePicBack)
+.load
 	call UncompressSpriteFromDE
 	predef ScaleSpriteByTwo
 	ld hl, wShadowOAM
