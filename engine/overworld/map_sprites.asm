@@ -240,6 +240,26 @@ LoadMapSpriteTilePatterns:
 ; bc = length in bytes
 ; a = ROM bank
 ReadSpriteSheetData:
+	; Any map loading the player (SPRITE_RED) must use the saved choice,
+	; including indoor maps and outdoor sprite-set reloads.
+	ld a, h
+	cp HIGH(SpriteSheetPointerTable)
+	jr nz, .read
+	ld a, l
+	cp LOW(SpriteSheetPointerTable)
+	jr nz, .read
+	ld a, [wUnusedPlayerDataByte]
+	cp 1
+	jr z, .blue
+	cp 2
+	jr z, .lance
+	jr .read
+.blue
+	ld hl, SpriteSheetPointerTable + (SPRITE_BLUE - 1) * 4
+	jr .read
+.lance
+	ld hl, SpriteSheetPointerTable + (SPRITE_LANCE - 1) * 4
+.read
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
