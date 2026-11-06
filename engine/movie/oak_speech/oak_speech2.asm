@@ -21,6 +21,8 @@ ChoosePlayerSprite::
 	ld [wMaxMenuItem], a ; 0: Red, 1: Blue, 2: Lance
 	ld a, PAD_A | PAD_UP | PAD_DOWN
 	ld [wMenuWatchedKeys], a
+	; The intro faded to white: restore the palette so the menu is visible.
+	call GBFadeInFromWhite
 	call HandleMenuInput
 	ld a, [wCurrentMenuItem]
 	ld [wUnusedPlayerDataByte], a
