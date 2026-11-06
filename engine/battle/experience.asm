@@ -276,6 +276,9 @@ GainExperience:
 	call AddNTimes
 	jp .partyMonLoop
 .done
+	; Update the visible EXP meter after gaining EXP, even without
+	; leveling up (the stock game only redraws the HUD on level-up).
+	callfar DrawBattleExpBar
 	ld hl, wPartyGainExpFlags
 	xor a
 	ld [hl], a ; clear gain exp flags
