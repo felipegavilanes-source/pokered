@@ -70,6 +70,7 @@ jobs:
           path: |
             challenge-selector-smoke.png
             challenge-battle-smoke.png
+            challenge-exp-gain-smoke.png
           if-no-files-found: ignore
 
       - name: Upload Challenge Edition ROM

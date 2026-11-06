@@ -73,6 +73,9 @@ try:
         p.tick(40)
     print("EXP gain animations:", state["exp_animations"])
     p.tick(120)
+    _, pixels = p.symbol_lookup("wEXPBarPixelLength")
+    print("EXP filled pixels:", p.memory[pixels])
+    print("EXP tiles after KO:", p.tilemap_window[10:18, 11])
     p.screen.image.save("challenge-exp-gain-smoke.png")
     if not state["exp_animations"]:
         raise SystemExit("FAIL: EXP bar did not animate after knocking out a Pokemon")
