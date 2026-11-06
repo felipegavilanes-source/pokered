@@ -1970,9 +1970,26 @@ RunMapScript::
 	ret
 
 LoadWalkingPlayerSpriteGraphics::
-	ld de, RedSprite
+	call GetChosenPlayerSprite
 	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
+
+; Keep the selected protagonist when the map or its graphics reload.
+; Use the old unused saved player-data byte to avoid changing save sizes.
+GetChosenPlayerSprite::
+	ld a, [wUnusedPlayerDataByte]
+	cp 1
+	jr z, .blue
+	cp 2
+	jr z, .lance
+	ld de, RedSprite
+	ret
+.blue
+	ld de, BlueSprite
+	ret
+.lance
+	ld de, LanceSprite
+	ret
 
 LoadSurfingPlayerSpriteGraphics::
 	ld de, SeelSprite
@@ -1980,6 +1997,12 @@ LoadSurfingPlayerSpriteGraphics::
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadBikePlayerSpriteGraphics::
+	; Blue and Lance keep their own sprites instead of switching back to Red.
+	ld a, [wUnusedPlayerDataByte]
+	cp 1
+	jr z, LoadWalkingPlayerSpriteGraphics
+	cp 2
+	jr z, LoadWalkingPlayerSpriteGraphics
 	ld de, RedBikeSprite
 	ld hl, vNPCSprites
 
