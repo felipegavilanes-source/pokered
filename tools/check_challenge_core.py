@@ -30,4 +30,10 @@ names = read("data/trainers/names.asm")
 assert 'li "GIOVANNI"' in names and 'li "BLAINE"' in names and 'li "CHIEF"' in names
 assert "AgumonSprite" not in read("gfx/sprites.asm")
 assert "Challenge Trainer Pics" not in read("gfx/pics.asm")
-print("OK: original characters; custom starters and harder trainers/AI retained")
+assert "callfar PrintEXPBar" in read("engine/battle/core.asm")
+for marker in ("call AnimateEXPBar", "call KeepEXPBarFull", "call AnimateEXPBarAgain"):
+    assert marker in read("engine/battle/experience.asm"), marker
+assert "EXPBarGraphics" in read("home/load_font.asm")
+assert "EXP_BAR_BASE_TILE_ID EQU $c0" in read("engine/gfx/exp_bar.asm")
+assert (ROOT / "gfx/battle/exp_bar.png").exists()
+print("OK: original characters; custom starters, AI and animated EXP bar retained")

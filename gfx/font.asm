@@ -29,3 +29,7 @@ WorldMapTileGraphicsEnd:
 
 PlayerCharacterTitleGraphics: INCBIN "gfx/title/player.2bpp"
 PlayerCharacterTitleGraphicsEnd:
+
+; Nine Gold/Silver-style partial-fill tiles (0 through 8 pixels).
+EXPBarGraphics:: INCBIN "gfx/battle/exp_bar.2bpp"
+EXPBarGraphicsEnd::

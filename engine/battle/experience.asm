@@ -151,6 +151,7 @@ GainExperience:
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData
+	call AnimateEXPBar ; show progress even if the level stays the same
 	pop hl
 	ld bc, MON_LEVEL - MON_EXP
 	add hl, bc
@@ -160,6 +161,7 @@ GainExperience:
 	ld a, [hl] ; current level
 	cp d
 	jp z, .nextMon ; if level didn't change, go to next mon
+	call KeepEXPBarFull ; finish the old level before beginning the new one
 	ld a, [wCurEnemyLevel]
 	push af
 	push hl
@@ -245,6 +247,7 @@ GainExperience:
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData
+	call AnimateEXPBarAgain ; reset the bar and animate leftover EXP
 	ld d, LEVEL_UP_STATS_BOX
 	callfar PrintStatsBox
 	call WaitForTextScrollButtonPress
@@ -276,9 +279,7 @@ GainExperience:
 	call AddNTimes
 	jp .partyMonLoop
 .done
-	; Update the visible EXP meter after gaining EXP, even without
-	; leveling up (the stock game only redraws the HUD on level-up).
-	callfar DrawBattleExpBar
+	; The bar is updated while the gain-EXP message is still displayed.
 	ld hl, wPartyGainExpFlags
 	xor a
 	ld [hl], a ; clear gain exp flags

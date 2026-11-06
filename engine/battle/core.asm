@@ -131,6 +131,8 @@ SetScrollXForSlidingPlayerBodyLeft:
 
 StartBattle:
 	xor a
+	ld [wEXPBarKeepFullFlag], a
+	ld [wEXPBarPixelLength], a
 	ld [wPartyGainExpFlags], a
 	ld [wPartyFoughtCurrentEnemyFlags], a
 	ld [wActionResultOrTookBattleTurn], a
@@ -1875,171 +1877,10 @@ DrawPlayerHUDAndHPBar:
 	ret
 
 
-; Challenge Edition: show an eight-tile experience progress bar in battle.
-; Compute the proportion between the current and next level using
-; eight rounds of binary long division (24-bit values).
+; Gen II-style EXP bar: actual 8-tile graphics live in VRAM ($c0-$c8).
+; Keep this entry point for the battle HUD and existing emulator smoke tests.
 DrawBattleExpBar::
-	ld a, [wBattleMonLevel]
-	cp MAX_LEVEL
-	jp nc, .maxLevel
-	ld a, [wPlayerMonNumber]
-	ld hl, wPartyMon1Exp
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	ld de, wBuffer
-	ld bc, 3
-	call CopyData ; current EXP (big-endian)
-	ld a, [wBattleMonSpecies]
-	ld [wCurSpecies], a
-	call GetMonHeader
-	ld a, [wBattleMonLevel]
-	ld d, a
-	callfar CalcExperience
-	; current EXP minus EXP at current level -> wBuffer+3
-	ld hl, wBuffer + 2
-	ld de, wBuffer + 5
-	ldh a, [hExperience + 2]
-	ld b, a
-	ld a, [hl]
-	sub b
-	ld [de], a
-	dec hl
-	dec de
-	ldh a, [hExperience + 1]
-	ld b, a
-	ld a, [hl]
-	sbc b
-	ld [de], a
-	dec hl
-	dec de
-	ldh a, [hExperience]
-	ld b, a
-	ld a, [hl]
-	sbc b
-	ld [de], a
-	; Save level threshold in wBuffer+6..8.
-	ldh a, [hExperience]
-	ld [wBuffer + 9], a
-	ldh a, [hExperience + 1]
-	ld [wBuffer + 10], a
-	ldh a, [hExperience + 2]
-	ld [wBuffer + 11], a
-	ld a, [wBattleMonLevel]
-	inc a
-	ld d, a
-	callfar CalcExperience
-	ld hl, wBuffer + 11
-	ld de, wBuffer + 8
-	ldh a, [hExperience + 2]
-	sub [hl]
-	ld [de], a
-	dec hl
-	dec de
-	ldh a, [hExperience + 1]
-	sbc [hl]
-	ld [de], a
-	dec hl
-	dec de
-	ldh a, [hExperience]
-	sbc [hl]
-	ld [de], a
-	; For each of 8 bits, double the remainder and subtract span
-	; if possible. The resulting fraction is 0..255.
-	ld c, 8
-	xor a
-	ld [wBuffer + 12], a
-.fractionLoop
-	ld hl, wBuffer + 5
-	sla [hl]
-	dec hl
-	rl [hl]
-	dec hl
-	rl [hl]
-	ld hl, wBuffer + 12
-	sla [hl]
-	ld hl, wBuffer + 3
-	ld de, wBuffer + 6
-	ld a, [de]
-	cp [hl]
-	jr c, .subtract
-	jr nz, .nextBit
-	inc hl
-	inc de
-	ld a, [de]
-	cp [hl]
-	jr c, .subtract
-	jr nz, .nextBit
-	inc hl
-	inc de
-	ld a, [de]
-	cp [hl]
-	jr c, .subtract
-	jr nz, .nextBit
-.subtract
-	ld hl, wBuffer + 5
-	ld de, wBuffer + 8
-	ld a, [de]
-	ld b, a
-	ld a, [hl]
-	sub b
-	ld [hld], a
-	dec de
-	ld a, [de]
-	ld b, a
-	ld a, [hl]
-	sbc b
-	ld [hld], a
-	dec de
-	ld a, [de]
-	ld b, a
-	ld a, [hl]
-	sbc b
-	ld [hl], a
-	ld hl, wBuffer + 12
-	inc [hl]
-.nextBit
-	dec c
-	jr nz, .fractionLoop
-	; Convert the fraction into 0..55 pixels across seven 8-pixel
-	; tiles. The original Gen 1 HP bar tiles include partial fills.
-	xor a
-	ldh [hMultiplicand], a
-	ldh [hMultiplicand + 1], a
-	ld a, [wBuffer + 12]
-	ldh [hMultiplicand + 2], a
-	ld a, 56
-	ldh [hMultiplier], a
-	call Multiply
-	ldh a, [hProduct + 2] ; floor(fraction * 56 / 256)
-	ld b, a
-	jr .draw
-.maxLevel
-	ld b, 56
-.draw
-	hlcoord 10, 11
-	ld a, 'E'
-	ld [hli], a
-	ld a, 'X'
-	ld [hli], a
-	ld a, 'P'
-	ld [hli], a
-	ld c, 7
-.tiles
-	ld a, b
-	cp 8
-	jr c, .partial
-	sub 8
-	ld b, a
-	ld a, $6b ; full tile
-	jr .place
-.partial
-	ld a, $63 ; empty + 0..7 pixels
-	add b
-	ld b, 0
-.place
-	ld [hli], a
-	dec c
-	jr nz, .tiles
+	callfar PrintEXPBar
 	ret
 
 DrawEnemyHUDAndHPBar:

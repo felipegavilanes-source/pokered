@@ -1,0 +1,255 @@
+; Animated EXP meter for the Gen I battle screen, adapted from DannyE33's
+; pret/pokered "In-battle EXP bar" tutorial (Gold/Silver style).
+; Graphics occupy background tile IDs $c0..$c8; x=10..17, y=11.
+DEF EXP_BAR_BASE_TILE_ID EQU $c0
+DEF EXP_BAR_LENGTH_PIXELS EQU 8 * 8
+
+PrintEXPBar:
+	call CalcEXPBarPixelLength
+	ldh a, [hQuotient + 3]
+	call ClampEXPBarLength
+	ld [wEXPBarPixelLength], a
+	ld b, a
+	ld c, 8
+	ld d, 8
+	hlcoord 17, 11
+.loop
+	ld a, b
+	sub c
+	jr nc, .skip
+	ld c, b
+	jr .loop
+.skip
+	ld b, a
+	ld a, EXP_BAR_BASE_TILE_ID
+	add c
+.loop2
+	ld [hld], a
+	dec d
+	ret z
+	ld a, b
+	and a
+	jr nz, .loop
+	ld a, EXP_BAR_BASE_TILE_ID
+	jr .loop2
+
+; Level-ups can overshoot the next-level threshold. Never draw or
+; animate beyond the eight available tiles.
+ClampEXPBarLength:
+	cp EXP_BAR_LENGTH_PIXELS + 1
+	ret c
+	ld a, EXP_BAR_LENGTH_PIXELS
+	ret
+
+CalcEXPBarPixelLength:
+	ld hl, wEXPBarKeepFullFlag
+	bit 0, [hl]
+	jr z, .start
+	res 0, [hl]
+	ld a, EXP_BAR_LENGTH_PIXELS
+	ldh [hQuotient + 3], a
+	ret
+.start
+	ld a, [wBattleMonLevel]
+	cp MAX_LEVEL
+	jr c, .calculate
+	ld a, EXP_BAR_LENGTH_PIXELS
+	ldh [hQuotient + 3], a
+	ret
+.calculate
+	; Base EXP of current level.
+	ld a, [wPlayerBattleStatus3]
+	ld hl, wBattleMonSpecies
+	bit TRANSFORMED, a
+	jr z, .species
+	ld hl, wPartyMon1
+	call BattleMonPartyAttr
+.species
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetMonHeader
+	ld a, [wBattleMonLevel]
+	ld d, a
+	callfar CalcExperience
+	ld hl, hMultiplicand
+	ld de, wEXPBarBaseEXP
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hl]
+	ld [de], a
+
+	; EXP required at the next level.
+	ld a, [wBattleMonLevel]
+	ld d, a
+	inc d
+	callfar CalcExperience
+
+	; Current EXP value comes from the actual active party member.
+	ld hl, wPartyMon1Exp
+	call BattleMonPartyAttr
+	ld b, h
+	ld c, l
+	ld hl, wEXPBarBaseEXP
+	ld de, wEXPBarCurEXP
+	call SubThreeByteNum
+	ld bc, hMultiplicand
+	ld hl, wEXPBarBaseEXP
+	ld de, wEXPBarNeededEXP
+	call SubThreeByteNum
+
+	; Normalize numerator and denominator to an 8-bit divisor.
+	ld hl, wEXPBarNeededEXP
+	ld de, wEXPBarCurEXP + 1
+	ld a, [hli]
+	and a
+	jr z, .twoBytes
+	ld a, [hli]
+	ld [hld], a
+	dec hl
+	ld a, [hli]
+	ld [hld], a
+	ld a, [de]
+	inc de
+	ld [de], a
+	dec de
+	dec de
+	ld a, [de]
+	inc de
+	ld [de], a
+	dec de
+	xor a
+	ld [hli], a
+	ld [de], a
+	inc de
+.twoBytes
+	ld a, [hl]
+	and a
+	jr z, .oneByte
+	srl a
+	ld [hli], a
+	ld a, [hl]
+	rr a
+	ld [hld], a
+	ld a, [de]
+	srl a
+	ld [de], a
+	inc de
+	ld a, [de]
+	rr a
+	ld [de], a
+	dec de
+	jr .twoBytes
+.oneByte
+	ld hl, hMultiplicand
+	ld de, wEXPBarCurEXP
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	ld [hl], a
+	ld a, EXP_BAR_LENGTH_PIXELS
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [wEXPBarNeededEXP + 2]
+	ldh [hDivisor], a
+	ld b, 4
+	jp Divide
+
+; [bc] - [hl] -> [de], three bytes, MSB first.
+SubThreeByteNum:
+	call .subByte
+	call .subByte
+.subByte
+	ld a, [bc]
+	inc bc
+	sub [hl]
+	inc hl
+	ld [de], a
+	jr nc, .noCarry
+	dec de
+	ld a, [de]
+	dec a
+	ld [de], a
+	inc de
+.noCarry
+	inc de
+	ret
+
+BattleMonPartyAttr:
+	ld a, [wPlayerMonNumber]
+	ld bc, PARTYMON_STRUCT_LENGTH
+	jp AddNTimes
+
+AnimateEXPBarAgain:
+	call IsCurrentMonBattleMon
+	ret nz
+	xor a
+	ld [wEXPBarPixelLength], a
+	hlcoord 17, 11
+	ld a, EXP_BAR_BASE_TILE_ID
+	ld c, 8
+.loop
+	ld [hld], a
+	dec c
+	jr nz, .loop
+AnimateEXPBar:
+	call IsCurrentMonBattleMon
+	ret nz
+	ld a, SFX_HEAL_HP
+	call PlaySoundWaitForCurrent
+	call CalcEXPBarPixelLength
+	ld hl, wEXPBarPixelLength
+	ld a, [hl]
+	ld b, a
+	ldh a, [hQuotient + 3]
+	call ClampEXPBarLength
+	ld [hl], a
+	sub b
+	jr z, .done
+	ld b, a
+	ld c, 8
+	hlcoord 17, 11
+.loop1
+	ld a, [hl]
+	cp EXP_BAR_BASE_TILE_ID + 8
+	jr nz, .loop2
+	dec hl
+	dec c
+	jr z, .done
+	jr .loop1
+.loop2
+	inc a
+	ld [hl], a
+	call DelayFrame
+	dec b
+	jr z, .done
+	jr .loop1
+.done
+	ld bc, 8
+	hlcoord 10, 11
+	ld de, wTileMapBackup + 10 + 11 * 20
+	call CopyData
+	ld c, 32
+	jp DelayFrames
+
+KeepEXPBarFull:
+	call IsCurrentMonBattleMon
+	ret nz
+	ld a, [wEXPBarKeepFullFlag]
+	set 0, a
+	ld [wEXPBarKeepFullFlag], a
+	ret
+
+IsCurrentMonBattleMon:
+	ld a, [wPlayerMonNumber]
+	ld b, a
+	ld a, [wWhichPokemon]
+	cp b
+	ret
