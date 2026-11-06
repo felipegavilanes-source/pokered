@@ -39,6 +39,11 @@ try:
         raise SystemExit("FAIL: SELECT+START did not open the debug menu")
     p.tick(100)
     p.button("a")  # FIGHT is the first debug menu entry.
+    p.tick(100)
+    # TestBattle calls AddPartyMon, which asks whether to nickname
+    # the starter. Decline it, or the test never starts a battle.
+    p.button("b")
+    p.tick(120)
     for i in range(120):
         if state["exp_draws"]:
             break
