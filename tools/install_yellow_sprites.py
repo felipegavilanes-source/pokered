@@ -17,17 +17,21 @@ FRONT = ROOT / "gfx/pokemon/front"
 BACK = ROOT / "gfx/pokemon/back"
 
 def main():
-    expected = {p.name for p in BACK.glob("*.png")}
-    if len(expected) != 151:
-        raise RuntimeError(f"Expected 151 Pokemon back sprites, found {len(expected)}")
-    if not expected.issubset({p.name for p in FRONT.glob("*.png")}):
-        raise RuntimeError("Pokemon front/back sprite lists differ")
+    # Gen I back sprites use a 'b' suffix: e.g. mew.png -> mewb.png.
+    # The front directory also contains the two fossil images, which are not Pokemon.
+    back_names = {p.name for p in BACK.glob("*.png")}
+    expected = {name[:-5] + ".png" for name in back_names if name.endswith("b.png")}
+    front_names = {p.name for p in FRONT.glob("*.png")}
+    if len(back_names) != 151 or len(expected) != 151:
+        raise RuntimeError(f"Expected 151 Pokemon back sprites, found {len(back_names)}")
+    if not expected.issubset(front_names):
+        raise RuntimeError(f"Missing front sprites for {sorted(expected - front_names)}")
 
     request = urllib.request.Request(URL, headers={"User-Agent": "pokered-yellow-sprite-import"})
     with urllib.request.urlopen(request, timeout=90) as response:
         archive = tarfile.open(fileobj=BytesIO(response.read()), mode="r:gz")
 
-    for kind, names in (("front", expected), ("back", expected)):
+    for kind, names in (("front", expected), ("back", back_names)):
         members = {Path(m.name).name: m for m in archive.getmembers()
                    if m.isfile() and "/gfx/pokemon/" + kind + "/" in m.name
                    and m.name.endswith(".png")}
