@@ -54,6 +54,21 @@ jobs:
           make -j$(nproc)
           python3 tools/check_challenge_core.py
 
+      - name: Headless gameplay smoke test (PyBoy)
+        if: ${{ github.repository_owner != 'pret' }}
+        run: |
+          python3 -m venv .pyboy-venv
+          .pyboy-venv/bin/pip install --disable-pip-version-check pyboy==2.9.0
+          .pyboy-venv/bin/python tools/challenge_smoke.py
+
+      - name: Upload gameplay smoke screenshot
+        if: ${{ always() && github.repository_owner != 'pret' && github.ref == 'refs/heads/challenge-edition' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pokemon-challenge-smoke-screenshot
+          path: challenge-selector-smoke.png
+          if-no-files-found: ignore
+
       - name: Upload Challenge Edition ROM
         if: ${{ github.repository_owner != 'pret' && github.ref == 'refs/heads/challenge-edition' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
         uses: actions/upload-artifact@v4
