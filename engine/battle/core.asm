@@ -1878,7 +1878,7 @@ DrawPlayerHUDAndHPBar:
 ; Challenge Edition: show an eight-tile experience progress bar in battle.
 ; Compute the proportion between the current and next level using
 ; eight rounds of binary long division (24-bit values).
-DrawBattleExpBar:
+DrawBattleExpBar::
 	ld a, [wBattleMonLevel]
 	cp MAX_LEVEL
 	jp nc, .maxLevel
