@@ -60,13 +60,16 @@ jobs:
           python3 -m venv .pyboy-venv
           .pyboy-venv/bin/pip install --disable-pip-version-check pyboy==2.9.0 Pillow
           .pyboy-venv/bin/python tools/challenge_smoke.py
+          .pyboy-venv/bin/python tools/challenge_battle_smoke.py
 
       - name: Upload gameplay smoke screenshot
         if: ${{ always() && github.repository_owner != 'pret' && github.ref == 'refs/heads/challenge-edition' }}
         uses: actions/upload-artifact@v4
         with:
           name: pokemon-challenge-smoke-screenshot
-          path: challenge-selector-smoke.png
+          path: |
+            challenge-selector-smoke.png
+            challenge-battle-smoke.png
           if-no-files-found: ignore
 
       - name: Upload Challenge Edition ROM
