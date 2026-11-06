@@ -1,6 +1,6 @@
 ; Choose a playable character once, before the name screen.
 ; The choice is stored in a spare byte of the existing save-game data.
-ChoosePlayerSprite:
+ChoosePlayerSprite::
 	call GBFadeOutToWhite
 	call ClearScreen
 	call LoadTextBoxTilePatterns
