@@ -374,7 +374,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_BADGE_HOUSE,           4,  4 ; $E6
 	end_indoor_group CERULEAN_CITY_3
 
-	map_const UNUSED_MAP_E7,                  0,  0 ; $E7
+	map_const CHAMPION_ISLAND_GYM,            5,  7 ; $E7
 	map_const ROCK_TUNNEL_B1F,               20, 18 ; $E8
 	end_indoor_group ROCK_TUNNEL_2
 

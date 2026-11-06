@@ -452,7 +452,7 @@
 
 ; Route 21 events
 	const_next $510
-	const_skip
+	const EVENT_BEAT_CHAMPION_ISLAND_OAK
 	const EVENT_BEAT_ROUTE_21_TRAINER_0
 	const EVENT_BEAT_ROUTE_21_TRAINER_1
 	const EVENT_BEAT_ROUTE_21_TRAINER_2

@@ -13,6 +13,8 @@ Route21_Object:
 	db $43 ; border block
 
 	def_warp_events
+	warp_event 10, 44, CHAMPION_ISLAND_GYM, 1
+	warp_event 11, 44, CHAMPION_ISLAND_GYM, 2
 
 	def_bg_events
 

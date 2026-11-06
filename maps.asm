@@ -863,6 +863,11 @@ INCLUDE "data/maps/headers/Museum2F.asm"
 INCLUDE "scripts/Museum2F.asm"
 INCLUDE "data/maps/objects/Museum2F.asm"
 
+INCLUDE "data/maps/headers/ChampionIslandGym.asm"
+INCLUDE "scripts/ChampionIslandGym.asm"
+INCLUDE "data/maps/objects/ChampionIslandGym.asm"
+ChampionIslandGym_Blocks: INCBIN "maps/PewterGym.blk"
+
 INCLUDE "data/maps/headers/PewterGym.asm"
 INCLUDE "scripts/PewterGym.asm"
 INCLUDE "data/maps/objects/PewterGym.asm"
