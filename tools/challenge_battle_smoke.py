@@ -9,10 +9,13 @@ if not rom.exists() or not sym.exists():
     raise SystemExit("Missing debug ROM or symbols")
 p = PyBoy(str(rom), symbols=str(sym), window="null", sound_emulated=False)
 p.set_emulation_speed(0)
-state = {"exp_draws": 0}
+state = {"exp_draws": 0, "exp_animations": 0}
 
 def exp_drawn(context):
     context["exp_draws"] += 1
+
+def exp_animated(context):
+    context["exp_animations"] += 1
 
 def debug_menu_shown(context):
     context["debug_menu"] = True
@@ -20,6 +23,7 @@ def debug_menu_shown(context):
 state["debug_menu"] = False
 p.hook_register(None, "DebugMenu", debug_menu_shown, state)
 p.hook_register(None, "DrawBattleExpBar", exp_drawn, state)
+p.hook_register(None, "AnimateEXPBar", exp_animated, state)
 try:
     p.tick(120)
     # Keep SELECT held while periodically pressing START. We may still be
@@ -51,9 +55,26 @@ try:
     shot = Path("challenge-battle-smoke.png")
     p.screen.image.save(shot)
     print("EXP battle HUD draw calls:", state["exp_draws"])
-    print("EXP tilemap row:", p.tilemap_background[10:18, 11])
+    print("EXP tilemap window:", p.tilemap_window[10:18, 11])
+    _, tilemap = p.symbol_lookup("wTileMap")
+    print("EXP WRAM tiles:", [p.memory[tilemap + 11 * 20 + x] for x in range(10, 18)])
     print("Screenshot:", shot)
     if not state["exp_draws"]:
         raise SystemExit("FAIL: EXP bar not reached during debug battle")
+    # Force the opponent to 1 HP and defeat it to verify EXP animation,
+    # rather than only testing that the empty EXP bar can be rendered.
+    _, enemy_hp = p.symbol_lookup("wEnemyMonHP")
+    p.memory[enemy_hp] = 0
+    p.memory[enemy_hp + 1] = 1
+    for _ in range(250):
+        if state["exp_animations"]:
+            break
+        p.button("a")
+        p.tick(40)
+    print("EXP gain animations:", state["exp_animations"])
+    p.tick(120)
+    p.screen.image.save("challenge-exp-gain-smoke.png")
+    if not state["exp_animations"]:
+        raise SystemExit("FAIL: EXP bar did not animate after knocking out a Pokemon")
 finally:
     p.stop()
