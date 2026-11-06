@@ -58,7 +58,7 @@ jobs:
         if: ${{ github.repository_owner != 'pret' }}
         run: |
           python3 -m venv .pyboy-venv
-          .pyboy-venv/bin/pip install --disable-pip-version-check pyboy==2.9.0
+          .pyboy-venv/bin/pip install --disable-pip-version-check pyboy==2.9.0 Pillow
           .pyboy-venv/bin/python tools/challenge_smoke.py
 
       - name: Upload gameplay smoke screenshot
