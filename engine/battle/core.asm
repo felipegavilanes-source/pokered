@@ -2000,17 +2000,21 @@ DrawBattleExpBar::
 .nextBit
 	dec c
 	jr nz, .fractionLoop
-	; Convert 0..255 into eight segments (0..8).
+	; Convert the fraction into 0..55 pixels across seven 8-pixel
+	; tiles. The original Gen 1 HP bar tiles include partial fills.
+	xor a
+	ldh [hMultiplicand], a
+	ldh [hMultiplicand + 1], a
 	ld a, [wBuffer + 12]
-	srl a
-	srl a
-	srl a
-	srl a
-	srl a
+	ldh [hMultiplicand + 2], a
+	ld a, 56
+	ldh [hMultiplier], a
+	call Multiply
+	ldh a, [hProduct + 2] ; floor(fraction * 56 / 256)
 	ld b, a
 	jr .draw
 .maxLevel
-	ld b, 8
+	ld b, 56
 .draw
 	hlcoord 10, 11
 	ld a, 'E'
@@ -2022,13 +2026,16 @@ DrawBattleExpBar::
 	ld c, 7
 .tiles
 	ld a, b
-	and a
-	jr z, .empty
-	ld a, $6b ; filled HP-bar tile
-	dec b
+	cp 8
+	jr c, .partial
+	sub 8
+	ld b, a
+	ld a, $6b ; full tile
 	jr .place
-.empty
-	ld a, $63 ; empty HP-bar tile
+.partial
+	ld a, $63 ; empty + 0..7 pixels
+	add b
+	ld b, 0
 .place
 	ld [hli], a
 	dec c
