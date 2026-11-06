@@ -1,4 +1,4 @@
-DebugMenu:
+DebugMenu::
 IF DEF(_DEBUG)
 	call ClearScreen
 
