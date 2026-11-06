@@ -75,13 +75,11 @@ ROMX $A
 	"Pics 2"
 	"Battle Engine 4"
 ROMX $B
-	"Pics 3"
 	"Battle Engine 5"
 ROMX $C
 	"Pics 4"
 	"Battle Engine 6"
 ROMX $D
-	"Pics 5"
 	"Slot Machines"
 ROMX $E
 	"Battle Engine 7"
@@ -177,6 +175,13 @@ ROMX $2B
 	"Pokédex Text"
 ROMX $2C
 	"Move Names"
+; Yellow artwork exceeds the original packed picture/code banks.
+; Entire Pics sections can move safely because UncompressMonSprite
+; selects BANK("Pics 3") / BANK("Pics 5") dynamically.
+ROMX $2D
+	"Pics 3"
+ROMX $2E
+	"Pics 5"
 WRAM0
 	"Audio RAM"
 	org $c100
