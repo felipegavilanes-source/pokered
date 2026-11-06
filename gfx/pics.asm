@@ -265,6 +265,8 @@ StarmiePicBack::       INCBIN "gfx/pokemon/back/starmieb.pic"
 
 RedPicBack::           INCBIN "gfx/player/redb.pic"
 OldManPicBack::        INCBIN "gfx/battle/oldmanb.pic"
+BluePicBack::          INCBIN "gfx/player/blueb.pic"
+LancePicBack::         INCBIN "gfx/player/lanceb.pic"
 
 
 SECTION "Pics 5", ROMX
