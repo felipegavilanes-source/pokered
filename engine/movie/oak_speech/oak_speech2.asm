@@ -1,3 +1,58 @@
+; Choose a playable character once, before the name screen.
+; The choice is stored in a spare byte of the existing save-game data.
+ChoosePlayerSprite:
+	call GBFadeOutToWhite
+	call ClearScreen
+	call LoadTextBoxTilePatterns
+	hlcoord 0, 0
+	lb bc, 10, 9
+	call TextBoxBorder
+	hlcoord 2, 2
+	ld de, .choices
+	call PlaceString
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wLastMenuItem], a
+	ld [wMenuWatchMovingOutOfBounds], a
+	inc a
+	ld [wTopMenuItemX], a
+	inc a
+	ld [wTopMenuItemY], a
+	ld [wMaxMenuItem], a ; 0: Red, 1: Blue, 2: Lance
+	ld a, PAD_A | PAD_UP | PAD_DOWN
+	ld [wMenuWatchedKeys], a
+	call HandleMenuInput
+	ld a, [wCurrentMenuItem]
+	ld [wUnusedPlayerDataByte], a
+	call GBFadeOutToWhite
+	call ClearScreen
+	call LoadChosenPlayerIntroPic
+	jp MovePicLeft
+
+.choices
+	db "RED"
+	next "BLUE"
+	next "LANCE@"
+
+; Portrait shown in the professor's introduction and after entering a name.
+LoadChosenPlayerIntroPic:
+	ld a, [wUnusedPlayerDataByte]
+	cp 1
+	jr z, .blue
+	cp 2
+	jr z, .lance
+	ld de, RedPicFront
+	lb bc, BANK(RedPicFront), 0
+	jp IntroDisplayPicCenteredOrUpperRight
+.blue
+	ld de, Rival1Pic
+	lb bc, BANK(Rival1Pic), 0
+	jp IntroDisplayPicCenteredOrUpperRight
+.lance
+	ld de, LancePic
+	lb bc, BANK(LancePic), 0
+	jp IntroDisplayPicCenteredOrUpperRight
+
 ChoosePlayerName:
 	call OakSpeechSlidePicRight
 	ld de, DefaultNamesPlayer
@@ -20,9 +75,7 @@ ChoosePlayerName:
 	jr z, .customName
 	call ClearScreen
 	call Delay3
-	ld de, RedPicFront
-	ld b, BANK(RedPicFront)
-	call IntroDisplayPicCenteredOrUpperRight
+	call LoadChosenPlayerIntroPic
 .done
 	ld hl, YourNameIsText
 	jp PrintText
