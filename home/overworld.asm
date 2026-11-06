@@ -285,6 +285,28 @@ OverworldLoopLessDelay::
 	call DoBikeSpeedup
 .normalPlayerSpriteAdvancement
 	call AdvancePlayerSprite
+	; Challenge Edition: ordinary walking takes 6 frames instead of 8
+	; (1.5x speed). Advance an extra animation tick at counters 6 and 3.
+	; Do not accelerate cycling, surfing, ledges or scripted movement.
+	ld a, [wWalkBikeSurfState]
+	and a
+	jr nz, .normalSpeed
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
+	jr nz, .normalSpeed
+	ld a, [wMovementFlags]
+	bit BIT_LEDGE_OR_FISHING, a
+	jr nz, .normalSpeed
+	bit BIT_SPINNING, a
+	jr nz, .normalSpeed
+	ld a, [wWalkCounter]
+	cp 6
+	jr z, .extraWalkingTick
+	cp 3
+	jr nz, .normalSpeed
+.extraWalkingTick
+	call AdvancePlayerSprite
+.normalSpeed
 	ld a, [wWalkCounter]
 	and a
 	jp nz, CheckMapConnections ; it seems like this check will never succeed (the other place where CheckMapConnections is run works)
