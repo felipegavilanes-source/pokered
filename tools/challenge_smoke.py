@@ -32,13 +32,25 @@ try:
             break
         pyboy.button("a")
         pyboy.tick(12)
-    pyboy.tick(20)
+    if not seen["selector"]:
+        pyboy.screen.image.save(SHOT)
+        raise SystemExit("FAIL: intro did not reach the protagonist selector")
+    # The routine begins with a white fade; capture the actual rendered menu.
+    pyboy.button_release("a")
+    pyboy.tick(120)
     pyboy.screen.image.save(SHOT)
+    _, choice_addr = pyboy.symbol_lookup("wUnusedPlayerDataByte")
+    print("Character selection screen:", SHOT)
+    pyboy.button("down")  # Choose Blue (index 1).
+    pyboy.tick(15)
+    pyboy.button("a")
+    pyboy.tick(90)
+    choice = pyboy.memory[choice_addr]
     print("ROM:", pyboy.cartridge_title)
     print("Reached character selector:", seen["selector"])
+    print("Selected character id (expect Blue=1):", choice)
     print("EXP bar draws:", seen["exp"])
-    print("Screenshot:", SHOT)
-    if not seen["selector"]:
-        raise SystemExit("FAIL: intro did not reach the protagonist selector")
+    if choice != 1:
+        raise SystemExit("FAIL: selector did not store Blue as character id 1")
 finally:
     pyboy.stop()
