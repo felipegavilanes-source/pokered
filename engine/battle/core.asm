@@ -1881,7 +1881,7 @@ DrawPlayerHUDAndHPBar:
 DrawBattleExpBar:
 	ld a, [wBattleMonLevel]
 	cp MAX_LEVEL
-	jr nc, .maxLevel
+	jp nc, .maxLevel
 	ld a, [wPlayerMonNumber]
 	ld hl, wPartyMon1Exp
 	ld bc, PARTYMON_STRUCT_LENGTH
