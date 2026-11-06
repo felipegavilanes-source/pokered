@@ -89,6 +89,7 @@ OakSpeech:
 	call MovePicLeft
 	ld hl, IntroducePlayerText
 	call PrintText
+	call ChoosePlayerSprite
 	call ChoosePlayerName
 	call GBFadeOutToWhite
 	call ClearScreen
@@ -102,9 +103,7 @@ OakSpeech:
 .skipSpeech
 	call GBFadeOutToWhite
 	call ClearScreen
-	ld de, RedPicFront
-	lb bc, BANK(RedPicFront), $00
-	call IntroDisplayPicCenteredOrUpperRight
+	call LoadChosenPlayerIntroPic
 	call GBFadeInFromWhite
 	ld a, [wStatusFlags3]
 	and a ; ???
@@ -124,7 +123,7 @@ OakSpeech:
 	ld [rROMB], a
 	ld c, 4
 	call DelayFrames
-	ld de, RedSprite
+	call GetChosenPlayerSprite
 	ld hl, vSprites
 	lb bc, BANK(RedSprite), $0C
 	call CopyVideoData
