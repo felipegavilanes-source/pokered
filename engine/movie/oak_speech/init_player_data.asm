@@ -18,6 +18,16 @@ InitPlayerData2:
 	call InitializeEmptyList
 	ld hl, wNumBagItems
 	call InitializeEmptyList
+	; Start with 99 Potions. Keep Oak's Parcel as a separate item slot,
+	; so the parcel delivery event can remove only the parcel.
+	ld a, 1
+	ld [wNumBagItems], a
+	ld a, POTION
+	ld [wBagItems], a
+	ld a, 99
+	ld [wBagItems + 1], a
+	ld a, $ff
+	ld [wBagItems + 2], a
 	ld hl, wNumBoxItems
 	call InitializeEmptyList
 
