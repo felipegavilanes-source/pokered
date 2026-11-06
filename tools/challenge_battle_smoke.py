@@ -22,18 +22,21 @@ p.hook_register(None, "DebugMenu", debug_menu_shown, state)
 p.hook_register(None, "DrawBattleExpBar", exp_drawn, state)
 try:
     p.tick(120)
-    # Holding START+SELECT on the title enters the debug menu;
-    # UP+SELECT+B would instead clear the save file.
-    p.button_press("start")
+    # Keep SELECT held while periodically pressing START. We may still be
+    # inside the initial Nintendo/Game Freak intro when the test begins;
+    # the title only detects a *new* START press in its input loop.
     p.button_press("select")
-    for _ in range(120):
+    for _ in range(220):
         if state["debug_menu"]:
             break
-        p.tick(30)
-    p.button_release("start")
+        p.button_press("start")
+        p.tick(8)
+        p.button_release("start")
+        p.tick(18)
     p.button_release("select")
     if not state["debug_menu"]:
-        raise SystemExit("FAIL: START+SELECT did not open the debug menu")
+        p.screen.image.save("challenge-battle-smoke.png")
+        raise SystemExit("FAIL: SELECT+START did not open the debug menu")
     p.tick(100)
     p.button("a")  # FIGHT is the first debug menu entry.
     for i in range(120):
