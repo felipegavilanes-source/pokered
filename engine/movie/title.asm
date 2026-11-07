@@ -59,11 +59,13 @@ DisplayTitleScreen:
 	ld bc, $10 tiles
 	ld a, BANK(PokemonLogoGraphics)
 	call FarCopyData2          ; second chunk
+IF DEF(_RED)
 	ld hl, Version_GFX
 	ld de, vChars2 tile $60 + (10 tiles - (Version_GFXEnd - Version_GFX) * 2) / 2
 	ld bc, Version_GFXEnd - Version_GFX
 	ld a, BANK(Version_GFX)
 	call FarCopyDataDouble
+ENDC
 	call ClearBothBGMaps
 
 ; place tiles for pokemon logo (except for the last row)
@@ -397,7 +399,11 @@ INCLUDE "data/pokemon/title_mons.asm"
 
 ; prints version text (red, blue)
 PrintGameVersionOnTitleScreen:
+IF DEF(_BLUE)
+	hlcoord 1, 8
+ELSE
 	hlcoord 7, 8
+ENDC
 	ld de, VersionOnTitleScreenText
 	jp PlaceString
 
@@ -407,7 +413,7 @@ IF DEF(_RED)
 	db $60,$61,$7F,$65,$66,$67,$68,$69,"@" ; "Red Version"
 ENDC
 IF DEF(_BLUE)
-	db $61,$62,$63,$64,$65,$66,$67,$68,"@" ; "Blue Version"
+	db "CHALLENGE EDITION@" ; custom title using normal font tiles
 ENDC
 
 DebugNewGamePlayerName:
