@@ -8,17 +8,17 @@ def read(path):
     return (ROOT / path).read_text(encoding="utf-8")
 
 const = read("constants/pokemon_constants.asm")
-for value in ("STARTER1 EQU MAGIKARP", "STARTER2 EQU TANGELA", "STARTER3 EQU ZUBAT"):
+for value in ("STARTER1 EQU MAGIKARP", "STARTER2 EQU DITTO", "STARTER3 EQU PORYGON"):
     assert value in const, value
 assert "db SPLASH, TACKLE, NO_MOVE, NO_MOVE" in read("data/pokemon/base_stats/magikarp.asm")
 for route, species in (("Route24", "BULBASAUR"), ("Route25", "CHARMANDER"), ("Route6", "SQUIRTLE")):
     assert species in read("data/wild/maps/" + route + ".asm")
 oak = read("text/OaksLab.asm")
-for species in ("MAGIKARP", "TANGELA", "ZUBAT"):
+for species in ("MAGIKARP", "DITTO", "PORYGON"):
     assert species in oak
 parties = read("data/trainers/parties.asm")
 assert "BrockData:" in parties and "db $FF, 20, GEODUDE" in parties
-assert "Rival1Data:" in parties and "db 5, TANGELA, 0" in parties and "db 5, ZUBAT, 0" in parties
+assert "Rival1Data:" in parties and "db 5, DITTO, 0" in parties and "db 5, PORYGON, 0" in parties
 assert "Rival2Data:" in parties and "Rival3Data:" in parties
 engine = read("engine/battle/trainer_ai.asm")
 assert "AIMoveChoiceModification5:" in engine and "Rival1AI:" in engine and "SabrinaAI:" in engine
