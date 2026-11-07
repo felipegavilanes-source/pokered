@@ -33,14 +33,14 @@ _OaksLabYouWantCharmanderText::
 
 _OaksLabYouWantSquirtleText::
 	text "So! You want the"
-	line "vine #MON,"
-	cont "TANGELA?"
+	line "transform #MON,"
+	cont "DITTO?"
 	done
 
 _OaksLabYouWantBulbasaurText::
 	text "So! You want the"
-	line "bat #MON,"
-	cont "ZUBAT?"
+	line "virtual #MON,"
+	cont "PORYGON?"
 	done
 
 _OaksLabMonEnergeticText::
